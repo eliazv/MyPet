@@ -32,6 +32,15 @@ public class MapActivity extends AppCompatActivity {
                 startActivity(UserInt);
             }
         });
+
+        ImageButton buttCam = (ImageButton) findViewById(R.id.btnCam);
+        buttCam.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent CamInt = new Intent(getApplicationContext(), CameraActivity.class);
+                startActivity(CamInt);
+            }
+        });
     }
 
 }
