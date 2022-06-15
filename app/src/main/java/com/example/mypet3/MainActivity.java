@@ -44,15 +44,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Button buttMap = (Button) findViewById(R.id.btnMap);
-        buttMap.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                //setContentView(R.layout.act_map);
-                Intent MapInt = new Intent(getApplicationContext(), MapActivity.class);
-                startActivity(MapInt);
-            }
-        });
 
         ImageButton buttUser = (ImageButton) findViewById(R.id.btnUser);
         buttUser.setOnClickListener(new View.OnClickListener(){
@@ -63,15 +54,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        ImageButton buttCam = (ImageButton) findViewById(R.id.btnCam);
-        buttCam.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent CamInt = new Intent(getApplicationContext(), CameraActivity.class);
-                startActivity(CamInt);
-            }
-        });
     }
 
     private void replaceFragment(Fragment fragment){

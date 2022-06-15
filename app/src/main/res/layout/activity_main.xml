@@ -21,8 +21,10 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
         </FrameLayout>
 
@@ -35,38 +37,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/bottom_nav_menu"/>
 
-        <Button
-            android:id="@+id/btnMap"
-            android:layout_width="143dp"
-            android:layout_height="58dp"
-            android:layout_marginStart="252dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="113dp"
-            android:backgroundTint="#3F51B5"
-            android:text="Map"
-            android:textColorLink="#3F51B5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:rippleColor="#3F51B5" />
-
-        <Button
-            android:id="@+id/btnPets"
-            android:layout_width="143dp"
-            android:layout_height="58dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="113dp"
-            android:backgroundTint="#3F51B5"
-            android:text="MyPet"
-            android:textColorLink="#3F51B5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:rippleColor="#3F51B5" />
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar3"
             android:layout_width="411dp"
-            android:layout_height="88dp"
+            android:layout_height="70dp"
             android:background="#3F51B5"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
@@ -78,21 +52,10 @@
             android:layout_width="54dp"
             android:layout_height="53dp"
             android:layout_marginStart="336dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="11dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_baseline_person_24" />
-
-
-        <ImageButton
-            android:id="@+id/btnCam"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="260dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_camera" />
 
 
         <TextView
@@ -100,7 +63,7 @@
             android:layout_width="132dp"
             android:layout_height="50dp"
             android:layout_marginStart="36dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="13dp"
             android:text="MyPet"
             android:textColor="#FFFFFF"
             android:textSize="34sp"
@@ -110,6 +73,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    "
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
