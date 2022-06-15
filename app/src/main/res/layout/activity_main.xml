@@ -30,18 +30,20 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"
+            style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#94B49F"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav_menu"/>
+            app:menu="@menu/bottom_nav_menu" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar3"
             android:layout_width="411dp"
             android:layout_height="70dp"
-            android:background="#3F51B5"
+            android:background="#94B49F"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,10 +51,12 @@
 
         <ImageButton
             android:id="@+id/btnUser"
+            style="@style/Widget.AppCompat.ImageButton"
             android:layout_width="54dp"
             android:layout_height="53dp"
             android:layout_marginStart="336dp"
             android:layout_marginTop="11dp"
+            android:backgroundTint="#FCF8E8"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_baseline_person_24" />
