@@ -2,7 +2,6 @@ package com.example.mypet3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +31,9 @@ public class UserActivity extends AppCompatActivity {
         EditText EditSurname = (EditText) findViewById(R.id.txtSurname);
         EditSurname.setEnabled(false);
 
+        EditText EditEmail = (EditText) findViewById(R.id.txtEmail);
+        EditEmail.setEnabled(false);
+
         EditText EditPhone = (EditText) findViewById(R.id.txtPhone);
         EditPhone.setEnabled(false);
 
@@ -46,6 +48,7 @@ public class UserActivity extends AppCompatActivity {
                     //cambia stato
                     EditName.setEnabled(true);
                     EditSurname.setEnabled(true);
+                    EditEmail.setEnabled(true);
                     EditPhone.setEnabled(true);
                 }
                 else{
@@ -53,6 +56,7 @@ public class UserActivity extends AppCompatActivity {
                     //cambia stato
                     EditName.setEnabled(false);
                     EditSurname.setEnabled(false);
+                    EditEmail.setEnabled(false);
                     EditPhone.setEnabled(false);
                 }
 

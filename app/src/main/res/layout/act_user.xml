@@ -3,17 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FCF8E8"
+    android:backgroundTint="#FCF8E8">
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="476dp"
+        android:text="Telefono"
+        android:textColor="#ECB390"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtPhone"
+        android:layout_width="332dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="520dp"
+        android:ems="10"
+        android:inputType="phone"
+        android:text="3338723461"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="132dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="36dp"
+        android:layout_width="267dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Profilo"
-        android:textColor="#3F51B5"
-        android:textSize="34sp"
+        android:textColor="#94B49F"
+        android:textSize="42sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,6 +51,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="336dp"
         android:layout_marginTop="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:tint="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
@@ -35,8 +64,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="108dp"
         android:text="Nome"
-        android:textColor="#3F51B5"
-        android:textSize="24sp"
+        android:textColor="#ECB390"
+        android:textSize="26sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,8 +76,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="228dp"
         android:text="Cognome"
-        android:textColor="#3F51B5"
-        android:textSize="24sp"
+        android:textColor="#ECB390"
+        android:textSize="26sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,21 +87,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="352dp"
-        android:text="Telefono"
-        android:textColor="#3F51B5"
-        android:textSize="24sp"
+        android:text="Email"
+        android:textColor="#ECB390"
+        android:textSize="26sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtPhone"
+        android:id="@+id/txtEmail"
         android:layout_width="332dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="396dp"
         android:ems="10"
         android:inputType="phone"
-        android:text="3338723461"
+        android:text="mariorossi@gmail.com"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -107,9 +136,11 @@
         android:id="@+id/bntEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="232dp"
-        android:layout_marginTop="528dp"
+        android:layout_marginStart="228dp"
+        android:layout_marginTop="596dp"
+        android:backgroundTint="#DF7861"
         android:text="Modifica"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
