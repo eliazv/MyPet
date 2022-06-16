@@ -37,7 +37,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav_menu" />
+            app:menu="@menu/bottom_nav_menu" >
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar3"
@@ -48,6 +50,15 @@
             android:theme="?attr/actionBarTheme"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="74dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/mypetlogo_foreground" />
 
         <ImageButton
             android:id="@+id/btnUser"
@@ -66,8 +77,9 @@
             android:id="@+id/textView"
             android:layout_width="132dp"
             android:layout_height="50dp"
-            android:layout_marginStart="36dp"
+            android:layout_marginStart="96dp"
             android:layout_marginTop="13dp"
+            android:fontFamily="cursive"
             android:text="MyPet"
             android:textColor="#FFFFFF"
             android:textSize="34sp"

@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/drawable/ic_baseline_map_24.xml" value="0.133" />
+        <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/drawable/ic_launcher_background.xml" value="0.133" />
+        <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/drawable/mypetlogo_background.xml" value="0.133" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/act_camera.xml" value="0.2" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/act_map.xml" value="0.2033514492753623" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/act_pet.xml" value="0.152" />
@@ -15,6 +18,7 @@
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/fragment_map.xml" value="0.11474164133738601" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/menu/bottom_nav_menu.xml" value="0.21388888888888888" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/menu/bottombar.xml" value="0.21388888888888888" />
+        <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/mipmap-anydpi-v26/mypetlogo.xml" value="0.133" />
       </map>
     </option>
   </component>
