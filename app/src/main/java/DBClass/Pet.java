@@ -4,12 +4,14 @@ public class Pet {
     public String nome;
     public String descr;
     public String posiz;
+    public String specie;
 
     Pet(){}
-    Pet(String nome, String descr, String posiz){
+    public Pet(String nome, String descr, String posiz, String specie){
         this.nome=nome;
         this.descr=descr;
         this.posiz=posiz;
+        this.specie=specie;
     }
 
     public String getNome() {
@@ -26,6 +28,14 @@ public class Pet {
 
     public void setDescr(String descr) {
         this.descr = descr;
+    }
+
+    public String getSpecie() {
+        return specie;
+    }
+
+    public void setSpecie(String specie) {
+        this.specie = specie;
     }
 
     public String getPosiz() {

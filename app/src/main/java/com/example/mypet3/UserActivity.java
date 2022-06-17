@@ -25,19 +25,19 @@ public class UserActivity extends AppCompatActivity {
         });
 
         //txt non modificabili inizialmente
-        EditText EditName = (EditText) findViewById(R.id.txtName);
+        EditText EditName = (EditText) findViewById(R.id.txtPNome);
         EditName.setEnabled(false);
 
-        EditText EditSurname = (EditText) findViewById(R.id.txtSurname);
+        EditText EditSurname = (EditText) findViewById(R.id.txtPPos);
         EditSurname.setEnabled(false);
 
-        EditText EditEmail = (EditText) findViewById(R.id.txtEmail);
+        EditText EditEmail = (EditText) findViewById(R.id.txtPSpecie);
         EditEmail.setEnabled(false);
 
-        EditText EditPhone = (EditText) findViewById(R.id.txtPhone);
+        EditText EditPhone = (EditText) findViewById(R.id.txtPDescr);
         EditPhone.setEnabled(false);
 
-        Button buttEdit = (Button) findViewById(R.id.bntEdit);
+        Button buttEdit = (Button) findViewById(R.id.btnSubmit);
         buttEdit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
