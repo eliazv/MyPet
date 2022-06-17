@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".PetFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="408dp"
+            android:layout_height="550dp"
+            android:orientation="vertical"
+            android:layout_marginTop="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="140dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginEnd="140dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="310dp"
+                    android:layout_height="73dp"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="624dp"
+                    android:layout_marginEnd="44dp"
+                    android:text="Largo Marino Maestri 68, Gambettola FC"
+                    android:textColor="#2196F3"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.625"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="310dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="588dp"
+                    android:layout_marginEnd="44dp"
+                    android:text="Casa"
+                    android:textColor="#3F51B5"
+                    android:textSize="28sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="362dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="188dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="#3F51B5"
+                    android:text="Pluto"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="40sp"
+                    app:circularflow_radiusInDP="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="310dp"
+                    android:layout_height="34dp"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="284dp"
+                    android:layout_marginEnd="44dp"
+                    android:text="Descrizione"
+                    android:textColor="#3F51B5"
+                    android:textSize="28sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="310dp"
+                    android:layout_height="31dp"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="492dp"
+                    android:layout_marginEnd="44dp"
+                    android:text="Elia Zavatta "
+                    android:textColor="#2196F3"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.615"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="266dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="105dp"
+                    android:layout_marginTop="524dp"
+                    android:layout_marginEnd="44dp"
+                    android:text="3938932793"
+                    android:textColor="#2196F3"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="52dp"
+                    android:layout_marginTop="520dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@android:drawable/stat_sys_phone_call" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="310dp"
+                    android:layout_height="34dp"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="460dp"
+                    android:layout_marginEnd="44dp"
+                    android:text="Padrone"
+                    android:textColor="#3F51B5"
+                    android:textSize="28sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="310dp"
+                    android:layout_height="113dp"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="316dp"
+                    android:layout_marginEnd="44dp"
+                    android:text="Sono un cane bellissimo, mi piace passeggiare in giro se mi trovate chiamate il mio padrone."
+                    android:textColor="#2196F3"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.307"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</FrameLayout>
