@@ -76,7 +76,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="372dp"
         android:ems="10"
-        android:inputType="phone"
+        android:inputType="text"
         android:text="mariorossi@gmail.com"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
