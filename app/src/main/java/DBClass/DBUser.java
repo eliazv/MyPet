@@ -1,17 +1,18 @@
 package DBClass;
+
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class DBPet {
+public class DBUser {
     private DatabaseReference dbRef;
 
-    public DBPet(){
+    public DBUser(){
         FirebaseDatabase db = FirebaseDatabase.getInstance();
-        dbRef=db.getReference(Pet.class.getSimpleName());
+        dbRef=db.getReference(User.class.getSimpleName());
     }
 
-    public Task<Void> add(Pet p){
+    public Task<Void> add(User p){
         return dbRef.push().setValue(p);
     }
 }
