@@ -20,7 +20,7 @@
         app:tint="#000000" />
 
     <EditText
-        android:id="@+id/txtPDescr"
+        android:id="@+id/txtTel"
         android:layout_width="332dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtPNome"
+        android:id="@+id/txtNome"
         android:layout_width="328dp"
         android:layout_height="47dp"
         android:layout_marginStart="32dp"
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtPPos"
+        android:id="@+id/txtCognome"
         android:layout_width="336dp"
         android:layout_height="46dp"
         android:layout_marginStart="32dp"
@@ -95,7 +95,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtPSpecie"
+        android:id="@+id/txtEmail"
         android:layout_width="332dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
@@ -133,7 +133,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnSubmit"
+        android:id="@+id/btnRegistr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="264dp"

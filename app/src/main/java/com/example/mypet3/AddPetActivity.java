@@ -28,11 +28,11 @@ public class AddPetActivity extends AppCompatActivity {
             }
         });
 
-        EditText edit_pnome = findViewById(R.id.txtPNome);
-        EditText edit_ppos = findViewById(R.id.txtPPos);
-        EditText edit_pspecie = findViewById(R.id.txtPSpecie);
-        EditText edit_pdescr = findViewById(R.id.txtPDescr);
-        Button buttSub = findViewById(R.id.btnSubmit);
+        EditText edit_pnome = findViewById(R.id.txtNome);
+        EditText edit_ppos = findViewById(R.id.txtCognome);
+        EditText edit_pspecie = findViewById(R.id.txtEmail);
+        EditText edit_pdescr = findViewById(R.id.txtTel);
+        Button buttSub = findViewById(R.id.btnRegistr);
         DBPet PetDB = new DBPet();
         buttSub.setOnClickListener(v-> {
             Pet bestia = new Pet(edit_pnome.getText().toString(), edit_pdescr.getText().toString(),

@@ -62,7 +62,7 @@
                 android:textSize="26sp" />
 
             <EditText
-                android:id="@+id/txtPSpecie"
+                android:id="@+id/txtEmail"
                 android:layout_width="332dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="32dp"
@@ -92,7 +92,7 @@
                 android:textSize="24sp" />
 
             <Button
-                android:id="@+id/btnSubmit"
+                android:id="@+id/btnRegistr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="258dp"

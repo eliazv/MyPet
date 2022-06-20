@@ -4,7 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import DBClass.DBUser;
+import DBClass.Pet;
+import DBClass.User;
 
 public class RegistrActivity extends AppCompatActivity {
 
@@ -21,7 +28,32 @@ public class RegistrActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+
+
+        EditText edit_unome = findViewById(R.id.txtNome);
+        EditText edit_ucogn = findViewById(R.id.txtCognome);
+        EditText edit_uemail = findViewById(R.id.txtEmail);
+        EditText edit_utel = findViewById(R.id.txtTel);
+        EditText edit_upass = findViewById(R.id.txtPass);
+        EditText edit_upassconf = findViewById(R.id.txtPassConf);
+        Button buttReg = findViewById(R.id.btnRegistr);
+        DBUser userdb = new DBUser();
+        buttReg.setOnClickListener(v-> {
+            if(edit_upass==edit_upassconf){
+                User user = new User(edit_unome.getText().toString(), edit_ucogn.getText().toString(),
+                        edit_uemail.getText().toString(), edit_upass.getText().toString(), edit_utel.getText().toString());
+
+                userdb.add(user).addOnSuccessListener(suc -> {
+                    Toast.makeText(this, "Utente inserito correttamente.", Toast.LENGTH_SHORT).show();
+                }).addOnFailureListener(er -> {
+                    Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
+                });
+            }
+            else{
+                Toast.makeText(this, "Le password non corrispondono.", Toast.LENGTH_SHORT).show();
+            }
+
+        });
     }
-
-
 }
