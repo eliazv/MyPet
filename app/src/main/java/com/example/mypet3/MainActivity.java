@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
         ImageButton buttUser = (ImageButton) findViewById(R.id.btnUser);
         buttUser.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -54,8 +53,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(UserInt);
             }
         });
-
-
     }
 
     private void replaceFragment(Fragment fragment){

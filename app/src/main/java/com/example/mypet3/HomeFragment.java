@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -75,8 +76,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //da frag a frag
-                /*
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                /* FragmentTransaction fr = getFragmentManager().beginTransaction();
                 fr.replace(R.id.fr_lay, new AddPetFragment());
                 fr.commit();*/
 
@@ -85,8 +85,10 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        //TextView PetName = (TextView) getView().findViewById(R.id.info_text);
-        //PetName.setText("a");
+        //set text non va
+
+        TextView PetNameD =  view.findViewById(R.id.txtDescr1);
+        PetNameD.setText("aa");
 
         return view;
     }

@@ -6,6 +6,7 @@ public class User {
     public String email;
     public String password;
     public String telefono;
+    //foto
 
     User(){}
     public User(String nome, String cognome, String email, String password, String telefono){
