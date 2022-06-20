@@ -26,8 +26,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="464dp"
         android:ems="10"
+        android:hint="Sono un cane bello e mi piace uscire."
         android:inputType="text"
-        android:text="ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao "
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -51,8 +51,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="136dp"
         android:ems="10"
+        android:hint="Fido"
         android:inputType="textPersonName"
-        android:text="Mario"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -64,8 +64,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="244dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="via Rossi 67, Gambettola FC"
+        android:hint="via Rossi 67, Gambettola FC"
+        android:inputType="text|textPostalAddress"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -101,8 +101,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="352dp"
         android:ems="10"
+        android:hint="Cane"
         android:inputType="text"
-        android:text="Cane"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

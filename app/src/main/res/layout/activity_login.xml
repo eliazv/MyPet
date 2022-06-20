@@ -26,23 +26,27 @@
                     android:id="@+id/btnClose"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="19dp"
                     android:backgroundTint="#00FFFFFF"
                     android:tint="#000000"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
-                    tools:ignore="MissingConstraints,UseAppTint"
-                    tools:layout_editor_absoluteX="336dp"
-                    tools:layout_editor_absoluteY="16dp" />
+                    tools:ignore="MissingConstraints,UseAppTint" />
 
                 <TextView
                     android:id="@+id/textView7"
                     android:layout_width="267dp"
                     android:layout_height="53dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
                     android:text="Login"
                     android:textColor="#94B49F"
                     android:textSize="42sp"
                     android:textStyle="bold"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="MissingConstraints" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -108,24 +112,27 @@
                     android:id="@+id/lblOP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="37dp"
+                    android:layout_marginTop="6dp"
                     android:text="Non hai un account?"
                     android:textColor="#94B49F"
                     android:textSize="22sp"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="37dp"
-                    tools:layout_editor_absoluteY="6dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
 
                 <Button
                     android:id="@+id/btnRegist"
                     android:layout_width="127dp"
                     android:layout_height="42dp"
+                    android:layout_marginEnd="31dp"
                     android:backgroundTint="#94B49F"
                     android:text="Registrati"
                     android:textColor="#FFFFFF"
                     android:textSize="14sp"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="253dp"
-                    tools:layout_editor_absoluteY="0dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -2,6 +2,7 @@ package com.example.mypet3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -59,9 +60,15 @@ public class UserActivity extends AppCompatActivity {
                     EditEmail.setEnabled(false);
                     EditPhone.setEnabled(false);
                 }
+            }
+        });
 
-
-
+        Button buttLogin = (Button) findViewById(R.id.btnLogin);
+        buttLogin.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent UserInt2 = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(UserInt2);
             }
         });
     }
