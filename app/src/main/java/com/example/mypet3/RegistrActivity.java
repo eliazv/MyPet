@@ -40,20 +40,19 @@ public class RegistrActivity extends AppCompatActivity {
         Button buttReg = findViewById(R.id.btnRegistr);
         DBUser userdb = new DBUser();
         buttReg.setOnClickListener(v-> {
-            if(edit_upass==edit_upassconf){
+            if(edit_upass.getText().toString().equals(edit_upassconf.getText().toString())){
                 User user = new User(edit_unome.getText().toString(), edit_ucogn.getText().toString(),
                         edit_uemail.getText().toString(), edit_upass.getText().toString(), edit_utel.getText().toString());
 
                 userdb.add(user).addOnSuccessListener(suc -> {
-                    Toast.makeText(this, "Utente inserito correttamente.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistrActivity.this, "Utente inserito correttamente.", Toast.LENGTH_SHORT).show();
                 }).addOnFailureListener(er -> {
-                    Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistrActivity.this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
                 });
             }
             else{
-                Toast.makeText(this, "Le password non corrispondono.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegistrActivity.this, "Le password non corrispondono.", Toast.LENGTH_SHORT).show();
             }
-
         });
     }
 }
