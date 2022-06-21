@@ -41,6 +41,7 @@ public class RegistrActivity extends AppCompatActivity {
         DBUser userdb = new DBUser();
         buttReg.setOnClickListener(v-> {
             if(edit_upass.getText().toString().equals(edit_upassconf.getText().toString())){
+                //TODO controllo email duplicate
                 User user = new User(edit_unome.getText().toString(), edit_ucogn.getText().toString(),
                         edit_uemail.getText().toString(), edit_upass.getText().toString(), edit_utel.getText().toString());
 
