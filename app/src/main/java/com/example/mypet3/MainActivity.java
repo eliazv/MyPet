@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                     replaceFragment(new HomeFragment());
                     break;
                 case R.id.map:
-                    replaceFragment(new MapFragment());
+                    replaceFragment(new Pet2Fragment());//MapFragment
                     break;
                 case R.id.camera:
                     replaceFragment(new CamFragment());
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         buttUser.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent UserInt = new Intent(getApplicationContext(), UserActivity.class);
+                Intent UserInt = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(UserInt);
             }
         });

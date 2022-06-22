@@ -49,20 +49,14 @@ public class LoginActivity extends AppCompatActivity {
         buttLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                /*
                 TextView uEmail =  findViewById(R.id.txtEmailLog);
                 TextView uPass =  findViewById(R.id.txtPassLog);
                 String suEmail= (String) uEmail.getText();
                 String suPass= (String) uPass.getText();
-                //LogUser(suEmail, suPass);
+                //LogUser(suEmail, suPass);*/
             }
         });
-
-        //non va!
-        RegistrActivity regA = new RegistrActivity();
-        if (regA.getRegSucc()){
-            TextView regAvv =  findViewById(R.id.txtError);
-            regAvv.setText("Utente registrato con successo.");
-        }
     }
 
     public void LogUser(String email, String password){
