@@ -26,20 +26,25 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.item_card, parent, false);
+        //context->parent.getContext()
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card, parent, false);
         return new MyViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Pet pipi = list.get(position);
-        holder.nome.setText(pipi.getNome());
-        holder.descr.setText(pipi.getDescr());
+        Pet currentCardItem = list.get(position);
+        holder.nome.setText(currentCardItem.getNome());//
+        holder.descr.setText(currentCardItem.getDescr());
     }
 
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    public Pet getSelectedPet(int position){
+        return list.get(position);
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
@@ -48,8 +53,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            nome = itemView.findViewById(R.id.lblPName);
-            descr = itemView.findViewById(R.id.txtDescr1);
+            nome = itemView.findViewById(R.id.tvPName);
+            descr = itemView.findViewById(R.id.tvPDescr);
         }
 
     }

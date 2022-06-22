@@ -38,6 +38,7 @@ public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView;
     DatabaseReference database;
+    DatabaseReference dbRef;
     HomeAdapter myAdapter;
     ArrayList<Pet> list;
 
@@ -83,8 +84,10 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(myAdapter);
 
         database = FirebaseDatabase.getInstance().getReference("Pet");
+        dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mypet---android-app-default-rtdb.firebaseio.com/");
 
-        database.addValueEventListener(new ValueEventListener() {
+        // database.addValueEventListener(new ValueEventListener() {
+        dbRef.child("Museum").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot sn : snapshot.getChildren()){
