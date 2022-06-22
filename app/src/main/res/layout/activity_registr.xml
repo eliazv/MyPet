@@ -171,7 +171,14 @@
                 android:text=""
                 android:textSize="24sp" />
 
-
+            <TextView
+                android:id="@+id/txtError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:layout_marginTop="0dp"
+                android:textColor="#DF7861"
+                android:textSize="22sp"/>
 
             <Button
                 android:id="@+id/btnRegistr"
@@ -179,11 +186,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="208dp"
                 android:layout_marginBottom="30dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="0dp"
                 android:backgroundTint="#DF7861"
                 android:text="Registrati"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp" />
+
 
 
 

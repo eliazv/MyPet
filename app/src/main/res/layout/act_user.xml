@@ -126,29 +126,18 @@
                 android:layout_marginStart="32dp"
                 android:ems="10"
                 android:inputType="textEmailAddress"
-                android:text="mariorossi@gmail.com"
+                android:text="gigipara@gmail.com"
                 android:textSize="24sp" />
 
 
             <Button
-                android:id="@+id/btnRegistr"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="228dp"
+                android:id="@+id/btnLogout"
+                android:layout_width="138dp"
+                android:layout_height="53dp"
+                android:layout_marginStart="240dp"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="#DF7861"
-                android:text="Modifica"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp" />
-
-            <Button
-                android:id="@+id/btnLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="30dp"
-                android:backgroundTint="#94B49F"
-                android:text="Login"
+                android:text="Esci"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp" />
 

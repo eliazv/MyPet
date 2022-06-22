@@ -41,11 +41,12 @@ public class HomeFragment extends Fragment {
     HomeAdapter myAdapter;
     ArrayList<Pet> list;
 
+    /*
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        /*
+
         //da riempire
         ArrayList<Pet> listaPet = new ArrayList<>();
 
@@ -66,9 +67,9 @@ public class HomeFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
+        });
         
-    }
+    }*/
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -102,7 +103,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         //Cambia da fragment ad activity
@@ -110,11 +111,6 @@ public class HomeFragment extends Fragment {
         buttAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //da frag a frag
-                /* FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.fr_lay, new AddPetFragment());
-                fr.commit();*/
-
                 Intent AddInt = new Intent(getActivity().getApplicationContext(), AddPetActivity.class);
                 startActivity(AddInt);
             }
