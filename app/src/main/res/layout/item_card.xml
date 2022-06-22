@@ -19,42 +19,43 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageViewPet"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toEndOf="@+id/txtDescr1"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:src="@tools:sample/backgrounds/scenic" />
+        <ImageView
+            android:id="@+id/imageViewPet"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:src="@tools:sample/backgrounds/scenic" />
 
-    <TextView
-        android:id="@+id/lblPName"
-        android:layout_width="198dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="Pluto"
-        android:textColor="#FCF8E8"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/lblPName"
+            android:layout_width="198dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="164dp"
+            android:layout_marginTop="24dp"
+            android:text="Pluto"
+            android:textColor="#FCF8E8"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/txtDescr1"
-        android:layout_width="198dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="18dp"
-        android:text="Boh Info e altro ciao ciao"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblPName"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/txtDescr1"
+            android:layout_width="198dp"
+            android:layout_height="83dp"
+            android:layout_marginStart="164dp"
+            android:layout_marginTop="72dp"
+            android:text="Boh Info e altro ciao ciao"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     </RelativeLayout>
