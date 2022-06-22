@@ -23,14 +23,14 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/txtQr"
+                android:layout_width="410dp"
+                android:layout_height="110dp"
                 android:layout_marginTop="20dp"
-                android:paddingLeft="110dp"
+                android:textAlignment="center"
                 android:text="Ricerca QR..."
                 android:textColor="#FFFFFF"
-                android:textSize="34sp" />
+                android:textSize="26sp" />
         </com.budiyev.android.codescanner.CodeScannerView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

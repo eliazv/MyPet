@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.budiyev.android.codescanner.CodeScanner;
@@ -35,7 +36,9 @@ public class CamFragment extends Fragment {
                     activity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(activity, result.getText(), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(activity, result.getText(), Toast.LENGTH_SHORT).show();
+                            TextView PetNameD =  root.findViewById(R.id.txtQr);
+                            PetNameD.setText(result.getText());
                         }
                     });
                 }

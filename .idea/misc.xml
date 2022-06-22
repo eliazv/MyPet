@@ -8,6 +8,7 @@
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/drawable/ic_launcher_background.xml" value="0.133" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/drawable/mypetlogo_background.xml" value="0.133" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/drawable/rounded_corner.xml" value="0.2085" />
+        <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout-w936dp/fragment_home2.xml" value="0.10792349726775956" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/act_camera.xml" value="0.2" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/act_map.xml" value="0.2033514492753623" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/act_pet.xml" value="0.264" />
@@ -15,14 +16,17 @@
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/activity_add_pet.xml" value="0.264" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/activity_main2.xml" value="0.1431159420289855" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/activity_map.xml" value="0.22644927536231885" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/activity_registr.xml" value="0.176" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/bottombar_layout.xml" value="0.12107396149949341" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/fragment_add_pet.xml" value="0.264" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/fragment_cam.xml" value="0.264" />
-        <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/fragment_home.xml" value="0.4" />
+        <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/fragment_home2.xml" value="0.1431159420289855" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/fragment_map.xml" value="0.2" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/fragment_pet.xml" value="0.2" />
+        <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/layout/item_card.xml" value="0.264" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/menu/bottom_nav_menu.xml" value="0.21388888888888888" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/menu/bottombar.xml" value="0.21388888888888888" />
         <entry key="..\:/Users/zavat/MyPet3/app/src/main/res/mipmap-anydpi-v26/mypetlogo.xml" value="0.133" />
