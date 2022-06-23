@@ -4,9 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".PetFragment"
-    android:background="#FCF8E8"
-    android:backgroundTint="#FCF8E8">
+    tools:context=".PetFragment">
 
 
     <ScrollView
@@ -41,7 +39,7 @@
                 android:background="#94B49F"
                 android:text="Pluto"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
+                android:textColor="#FCF8E8"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 app:circularflow_radiusInDP="10dp" />

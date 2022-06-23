@@ -1,13 +1,10 @@
 package com.example.mypet3;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,29 +17,27 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import DBClass.DBUser;
-import DBClass.Pet;
 import DBClass.User;
 
 
 public class RegistrActivity extends AppCompatActivity {
 
+    DatabaseReference dbRef;
 
-
-    public boolean regSucc = false;
-    FirebaseAuth mAuth;
-
-    public boolean getRegSucc() {
-        return regSucc;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registr);
 
-        mAuth = FirebaseAuth.getInstance();
+        dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mypet---android-app-default-rtdb.firebaseio.com/");
 
 
         ImageButton buttClose = (ImageButton) findViewById(R.id.btnClose);
@@ -53,25 +48,25 @@ public class RegistrActivity extends AppCompatActivity {
             }
         });
 
-
-        EditText edit_unome = findViewById(R.id.txtNome);
-        EditText edit_ucogn = findViewById(R.id.txtCognome);
+/*
+        EditText edit_uUser = findViewById(R.id.tvUsername);
         EditText edit_uemail = findViewById(R.id.txtEmail);
         EditText edit_utel = findViewById(R.id.txtTel);
         EditText edit_upass = findViewById(R.id.txtPass);
-        EditText edit_upassconf = findViewById(R.id.txtPassConf);
+        EditText edit_upassconf = findViewById(R.id.txtPassConf);*/
         Button buttReg = findViewById(R.id.btnRegistr);
+        buttReg.setOnClickListener(view -> register());
+        /*
         DBUser userdb = new DBUser();
         buttReg.setOnClickListener(v-> {
             if(edit_upass.getText().toString().equals(edit_upassconf.getText().toString())){
                 //TODO controllo email duplicate
-                User user = new User(edit_unome.getText().toString(), edit_ucogn.getText().toString(),
+                User user = new User(edit_uUser.getText().toString(),
                         edit_uemail.getText().toString(), edit_upass.getText().toString(), edit_utel.getText().toString());
 
                 userdb.add(user).addOnSuccessListener(suc -> {
                     Toast.makeText(RegistrActivity.this, "Utente inserito correttamente.", Toast.LENGTH_SHORT).show();
-                    //TODO cambia textbox in login
-                    regSucc=true;
+
 
                     //CreateUser(user.email, user.password);
 
@@ -88,27 +83,57 @@ public class RegistrActivity extends AppCompatActivity {
                 TextView PetNameD =  findViewById(R.id.txtError);
                 PetNameD.setText("Le password non corrispondono.");
             }
-        });
+        });*/
     }
 
-     public void CreateUser(String email, String password){
-         mAuth.createUserWithEmailAndPassword(email,password)
-                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                     @Override
-                     public void onComplete(@NonNull Task<AuthResult> task) {
-                         if (task.isSuccessful()) {
-                             //Log.d(TAG, "createUserWithEmail:success");
-                             Toast.makeText(RegistrActivity.this,"Registrazione avvenuta con successo.",
-                                     Toast.LENGTH_SHORT).show();
-                             FirebaseUser user = mAuth.getCurrentUser();
-                             //updateUI(user); non va boh
-                         } else {
-                             //Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                             Toast.makeText(RegistrActivity.this,"Authentication failed."+task.getException().getMessage(),
-                                     Toast.LENGTH_SHORT).show();
-                             //updateUI(user); non va boh
-                         }
-                     }
-                 });
-     }
+
+    public void register(){
+        EditText username = findViewById(R.id.tvUsername);
+        String userText = username.getText().toString();
+
+        EditText password = findViewById(R.id.txtPass);
+        String pswText = password.getText().toString();
+
+        EditText tel = findViewById(R.id.txtTel);
+        String telText = password.getText().toString();
+
+        EditText email = findViewById(R.id.txtEmail);
+        String emailText = email.getText().toString();
+
+        EditText passconf = findViewById(R.id.txtPassConf);
+        String passconfText = passconf.getText().toString();
+
+        if(userText.isEmpty() || pswText.isEmpty() || emailText.isEmpty() || passconfText.isEmpty() || telText.isEmpty()){
+            Toast.makeText(getBaseContext(), "Compila tutti i campi.", Toast.LENGTH_SHORT).show();
+        } else {
+            dbRef.child("User").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.hasChild(userText)){
+                        Toast.makeText(getBaseContext(), "Username già esistente.", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(!(passconfText.equals(password))){
+                        Toast.makeText(getBaseContext(), "Le password non corrispondono.", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        dbRef.child("User").child(userText).child("password").setValue(pswText);
+                        dbRef.child("User").child(userText).child("email").setValue(emailText);
+                        dbRef.child("User").child(userText).child("birthday").setValue(telText);
+
+                        Toast.makeText(getApplicationContext(), "Account creato con successo!", Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(RegistrActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
+    }
+
 }

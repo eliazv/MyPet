@@ -29,20 +29,19 @@ public class AddPetActivity extends AppCompatActivity {
             }
         });
 
-        EditText edit_pnome = findViewById(R.id.txtNome);
+        EditText edit_pnome = findViewById(R.id.tvUsername);
         EditText edit_ppos = findViewById(R.id.txtCognome);
         EditText edit_pspecie = findViewById(R.id.txtEmail);
         EditText edit_pdescr = findViewById(R.id.txtTel);
         Button buttSub = findViewById(R.id.btnRegistr);
         DBPet PetDB = new DBPet();
         buttSub.setOnClickListener(v-> {
-            Pet bestia = new Pet(edit_pnome.getText().toString(), edit_pdescr.getText().toString(),
+            Pet newPet = new Pet(edit_pnome.getText().toString(), edit_pdescr.getText().toString(),
                     edit_ppos.getText().toString(), edit_pspecie.getText().toString());
 
-            PetDB.add(bestia).addOnSuccessListener(suc -> {
+            PetDB.add(newPet).addOnSuccessListener(suc -> {
                 Toast.makeText(this, "Pet inserito correttamente.", Toast.LENGTH_SHORT).show();
-                Intent HomeFr = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(HomeFr);
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }).addOnFailureListener(er -> {
                 Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
             });

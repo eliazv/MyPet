@@ -1,36 +1,26 @@
 package DBClass;
 
 public class User {
-    public String nome;
-    public String cognome;
+    public String username;
     public String email;
     public String password;
     public String telefono;
     //foto
 
     User(){}
-    public User(String nome, String cognome, String email, String password, String telefono){
-        this.nome=nome;
-        this.cognome=cognome;
+    public User(String username, String email, String password, String telefono){
+        this.username=username;
         this.email=email;
         this.password=password;
         this.telefono=telefono;
     }
 
-    public String getNome() {
-        return nome;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCognome() {
-        return cognome;
-    }
-
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
+    public void setUsername(String nome) {
+        this.username = nome;
     }
 
     public String getEmail() {

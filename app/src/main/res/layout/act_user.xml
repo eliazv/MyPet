@@ -59,7 +59,7 @@
                 android:textSize="26sp" />
 
             <EditText
-                android:id="@+id/txtNome"
+                android:id="@+id/tvUsername"
                 android:layout_width="328dp"
                 android:layout_height="47dp"
                 android:layout_marginStart="32dp"

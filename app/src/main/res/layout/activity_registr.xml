@@ -55,39 +55,38 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="14dp"
-                android:text="Nome"
+                android:text="Username"
                 android:textColor="#ECB390"
                 android:textSize="26sp" />
 
             <EditText
-                android:id="@+id/txtNome"
+                android:id="@+id/tvUsername"
                 android:layout_width="328dp"
                 android:layout_height="47dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="0dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Mario"
+                android:inputType="textVisiblePassword|textNoSuggestions"
+                android:hint="mariorossi1"
                 android:textSize="24sp" />
-
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="20dp"
-                android:text="Cognome"
+                android:text="Email"
                 android:textColor="#ECB390"
                 android:textSize="26sp" />
 
             <EditText
-                android:id="@+id/txtCognome"
-                android:layout_width="336dp"
-                android:layout_height="46dp"
+                android:id="@+id/txtEmail"
+                android:layout_width="332dp"
+                android:layout_height="48dp"
                 android:layout_marginStart="32dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Rossi"
+                android:inputType="textEmailAddress"
+                android:hint="mariorossi@gmail.com"
                 android:textSize="24sp" />
 
             <TextView
@@ -108,28 +107,10 @@
                 android:layout_marginStart="32dp"
                 android:ems="10"
                 android:inputType="phone"
-                android:text="3338723461"
+                android:hint="3338723461"
                 android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="20dp"
-                android:text="Email"
-                android:textColor="#ECB390"
-                android:textSize="26sp" />
 
-            <EditText
-                android:id="@+id/txtEmail"
-                android:layout_width="332dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="32dp"
-                android:ems="10"
-                android:inputType="text"
-                android:text="mariorossi@gmail.com"
-                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/lblPass"

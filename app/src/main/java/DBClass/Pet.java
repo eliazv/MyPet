@@ -49,7 +49,7 @@ public class Pet {
         this.posiz=posiz;
         this.specie=specie;
         this.proprietario=user;
-        String qrdata= "Nome: "+nome+", Proprietario: "+proprietario.nome+" "+proprietario.cognome
+        String qrdata= "Nome: "+nome+", Proprietario: "+proprietario.username
                 +", Telefono: "+proprietario.telefono+", Abitazione: "+posiz+", Descrizione: "+descr;
         this.qrgEncoder = new QRGEncoder(qrdata,null, QRGContents.Type.TEXT, 10);
     }

@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -32,6 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import DBClass.DBPet;
 import DBClass.Pet;
 
 public class HomeFragment extends Fragment {
@@ -110,17 +112,14 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        //Cambia da fragment ad activity
         FloatingActionButton buttAdd = (FloatingActionButton)view.findViewById(R.id.btnAdd);
         buttAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Da HomeFragment a AddPetActivity
                 startActivity( new Intent(getActivity().getApplicationContext(), AddPetActivity.class));
             }
         });
-
-        //TextView PetNameD =  view.findViewById(R.id.txtDescr1);
-        //PetNameD.setText("aa");
 
         recyclerView = view.findViewById(R.id.petlist);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -130,6 +129,16 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(myAdapter);
 
         database = FirebaseDatabase.getInstance().getReference("Pet");
+
+        //potrei aggiungere un pet qua, va ma non va bene
+        /*
+        DBPet PetDB = new DBPet();
+        Pet newPet = new Pet("Prova", "è una prova",
+                "lontano","cane");
+        PetDB.add(newPet).addOnSuccessListener(suc -> {
+
+            startActivity(new Intent(getContext(), MainActivity.class));
+        });*/
 
         database.addValueEventListener(new ValueEventListener() {
             @Override
@@ -144,6 +153,8 @@ public class HomeFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+
+
         });
 
         return view;

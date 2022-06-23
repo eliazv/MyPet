@@ -34,7 +34,7 @@ public class UserActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         //txt non modificabili inizialmente
-        EditText EditName = (EditText) findViewById(R.id.txtNome);
+        EditText EditName = (EditText) findViewById(R.id.tvUsername);
         EditName.setEnabled(false);
 
         EditText EditSurname = (EditText) findViewById(R.id.txtCognome);
