@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.map:
                     replaceFragment(new PetFragment());//MapFragment
+                    //startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     break;
                 case R.id.camera:
                     replaceFragment(new CamFragment());

@@ -2,6 +2,7 @@ package com.example.mypet3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -40,9 +41,13 @@ public class AddPetActivity extends AppCompatActivity {
 
             PetDB.add(bestia).addOnSuccessListener(suc -> {
                 Toast.makeText(this, "Pet inserito correttamente.", Toast.LENGTH_SHORT).show();
+                Intent HomeFr = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(HomeFr);
             }).addOnFailureListener(er -> {
                 Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
             });
         });
+
+
     }
 }

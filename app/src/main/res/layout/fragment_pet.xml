@@ -38,13 +38,14 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="24dp"
-                android:background="@drawable/rounded_corner"
+                android:background="#94B49F"
                 android:text="Pluto"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 app:circularflow_radiusInDP="10dp" />
+            <!--android:background="@drawable/rounded_corner"-->
 
 
 

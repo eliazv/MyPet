@@ -72,6 +72,7 @@ public class HomeFragment extends Fragment {
         
     }*/
 
+    /*
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -102,7 +103,7 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-
+*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -114,8 +115,7 @@ public class HomeFragment extends Fragment {
         buttAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent AddInt = new Intent(getActivity().getApplicationContext(), AddPetActivity.class);
-                startActivity(AddInt);
+                startActivity( new Intent(getActivity().getApplicationContext(), AddPetActivity.class));
             }
         });
 
