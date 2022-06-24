@@ -15,10 +15,8 @@ public class Pet {
     public String descr;
     public String posiz;
     public String specie;
-    public String email;
+    public String propr;
     public Image imgPet;
-    public User proprietario;
-
     public QRGEncoder qrgEncoder;
 
 
@@ -35,14 +33,14 @@ public class Pet {
     }
 
 
-    public Pet(String nome, String descr, String posiz, String specie, String email){
+    public Pet(String nome, String descr, String posiz, String specie, String propr){
         this.nome=nome;
         this.descr=descr;
         this.posiz=posiz;
         this.specie=specie;
-        this.email=email;
+        this.propr=propr;
     }
-
+/*
     public Pet(String nome, String descr, String posiz, String specie, User user){
         this.nome=nome;
         this.descr=descr;
@@ -52,13 +50,13 @@ public class Pet {
         String qrdata= "Nome: "+nome+", Proprietario: "+proprietario.username
                 +", Telefono: "+proprietario.telefono+", Abitazione: "+posiz+", Descrizione: "+descr;
         this.qrgEncoder = new QRGEncoder(qrdata,null, QRGContents.Type.TEXT, 10);
-    }
+    }*/
 
 
 
-    public String getEmail() {return email;}
+    public String getPropr() {return propr;}
 
-    public void setEmail(String email) {this.email = email;}
+    public void setPropr(String email) {this.propr = email;}
 
     public String getNome() {
         return nome;

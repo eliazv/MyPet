@@ -56,8 +56,7 @@ public class MainActivity extends AppCompatActivity {
         buttUser.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent UserInt = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(UserInt);
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
         });
     }

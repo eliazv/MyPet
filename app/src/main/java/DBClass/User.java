@@ -1,4 +1,4 @@
-package DBClass;
+/*package DBClass;
 
 public class User {
     public String username;
@@ -46,4 +46,4 @@ public class User {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-}
+}*/

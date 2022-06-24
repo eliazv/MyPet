@@ -20,7 +20,7 @@
         app:tint="#000000" />
 
     <EditText
-        android:id="@+id/txtTel"
+        android:id="@+id/txtDescr"
         android:layout_width="332dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/tvUsername"
+        android:id="@+id/txtNome"
         android:layout_width="328dp"
         android:layout_height="47dp"
         android:layout_marginStart="32dp"
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtCognome"
+        android:id="@+id/txtPos"
         android:layout_width="336dp"
         android:layout_height="46dp"
         android:layout_marginStart="32dp"
@@ -95,7 +95,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtEmail"
+        android:id="@+id/txtSpecie"
         android:layout_width="332dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
@@ -133,13 +133,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnRegistr"
+        android:id="@+id/btnAddPet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="264dp"
+        android:layout_marginStart="234dp"
         android:layout_marginTop="588dp"
         android:backgroundTint="#DF7861"
-        android:text="Salva"
+        android:text="Aggiungi"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"

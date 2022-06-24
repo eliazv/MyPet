@@ -23,8 +23,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import DBClass.DBUser;
-import DBClass.User;
 
 
 public class RegistrActivity extends AppCompatActivity {
@@ -112,20 +110,21 @@ public class RegistrActivity extends AppCompatActivity {
                     if (snapshot.hasChild(userText)){
                         Toast.makeText(getBaseContext(), "Username già esistente.", Toast.LENGTH_SHORT).show();
                     }
-                    else if(!(passconfText.equals(password))){
-                        Toast.makeText(getBaseContext(), "Le password non corrispondono.", Toast.LENGTH_SHORT).show();
-                    }
-                    else {
+                    else{
                         dbRef.child("User").child(userText).child("password").setValue(pswText);
                         dbRef.child("User").child(userText).child("email").setValue(emailText);
-                        dbRef.child("User").child(userText).child("birthday").setValue(telText);
+                        dbRef.child("User").child(userText).child("telefono").setValue(telText);
 
                         Toast.makeText(getApplicationContext(), "Account creato con successo!", Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(RegistrActivity.this, LoginActivity.class);
                         startActivity(intent);
                         finish();
-                    }
+                        }
+                    /*
+                    else if((passconfText.equals(password))) {
+                        Toast.makeText(getBaseContext(), "Le password non corrispondono.", Toast.LENGTH_SHORT).show();
+                    }*/
                 }
 
                 @Override

@@ -1,4 +1,4 @@
-package DBClass;
+/*package DBClass;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
@@ -15,4 +15,4 @@ public class DBUser {
     public Task<Void> add(User p){
         return dbRef.push().setValue(p);
     }
-}
+}*/

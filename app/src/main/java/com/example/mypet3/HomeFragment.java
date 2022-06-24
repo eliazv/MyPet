@@ -39,42 +39,11 @@ import DBClass.Pet;
 public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView;
-    DatabaseReference database;
     DatabaseReference dbRef;
     HomeAdapter myAdapter;
     ArrayList<Pet> list;
 
-    /*
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-
-        //da riempire
-        ArrayList<Pet> listaPet = new ArrayList<>();
-
-        Query getPetData = FirebaseDatabase.getInstance().getReference("Pet");
-        Query getPetName = getPetData.orderByChild("Nome");
-
-        getPetName.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot sn : snapshot.getChildren()){
-                    Pet p = sn.getValue(Pet.class);
-                    //aggiungi a lista?
-                    listaPet.add(p);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        
-    }*/
-
-    /*
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -86,11 +55,9 @@ public class HomeFragment extends Fragment {
         myAdapter = new HomeAdapter(getContext(), list);
         recyclerView.setAdapter(myAdapter);
 
-        database = FirebaseDatabase.getInstance().getReference("Pet");
         dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mypet---android-app-default-rtdb.firebaseio.com/");
 
-        // database.addValueEventListener(new ValueEventListener() {
-        dbRef.child("Museum").addValueEventListener(new ValueEventListener() {
+        dbRef.child("Pet").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot sn : snapshot.getChildren()){
@@ -105,7 +72,7 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-*/
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -128,19 +95,9 @@ public class HomeFragment extends Fragment {
         myAdapter = new HomeAdapter(getContext(), list);
         recyclerView.setAdapter(myAdapter);
 
-        database = FirebaseDatabase.getInstance().getReference("Pet");
+        dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mypet---android-app-default-rtdb.firebaseio.com/");
 
-        //potrei aggiungere un pet qua, va ma non va bene
-        /*
-        DBPet PetDB = new DBPet();
-        Pet newPet = new Pet("Prova", "è una prova",
-                "lontano","cane");
-        PetDB.add(newPet).addOnSuccessListener(suc -> {
-
-            startActivity(new Intent(getContext(), MainActivity.class));
-        });*/
-
-        database.addValueEventListener(new ValueEventListener() {
+        dbRef.child("Pet").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot sn : snapshot.getChildren()){
@@ -153,12 +110,7 @@ public class HomeFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-
-
         });
-
         return view;
     }
-
-
 }

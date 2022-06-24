@@ -25,21 +25,18 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
-    FirebaseAuth mAuth;
-
     DatabaseReference dbRef;
     static String loggedUser = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if( loggedUser != ""){
+            startActivity(new Intent(getApplicationContext(), UserActivity.class));
+        }
         setContentView(R.layout.activity_login);
 
-        mAuth = FirebaseAuth.getInstance();
-
-
         dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mypet---android-app-default-rtdb.firebaseio.com/");
-
 
         ImageButton buttClose = (ImageButton) findViewById(R.id.btnClose);
         buttClose.setOnClickListener(new View.OnClickListener(){
@@ -74,28 +71,6 @@ public class LoginActivity extends AppCompatActivity {
         });*/
     }
 
-    public void LogUser(String email, String password){
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            //updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            //Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            TextView regAvv =  findViewById(R.id.txtError);
-                            regAvv.setText("Errore.");
-                            //updateUI(null);
-                        }
-                    }
-                });
-    }
-
     public void login() {
         EditText username = findViewById(R.id.tvUserLog);
         String userText = username.getText().toString();
@@ -107,10 +82,10 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(getBaseContext(), "Username o password non inseriti.", Toast.LENGTH_SHORT).show();
         } else {
             //prende -N55MsYH_YtheROQ3Y11 non l'username
-            dbRef.child("User").addListenerForSingleValueEvent(new ValueEventListener() {//.child("username")
+            dbRef.child("User").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if (snapshot.hasChild(userText)) {//perche controlla nei child sotto l'username, che non esistono?
+                    if (snapshot.hasChild(userText)) {
                         final String getPsw = snapshot.child(userText).child("password").getValue(String.class);
                         if (getPsw.equals(pswText)) {
                             loggedUser = userText;

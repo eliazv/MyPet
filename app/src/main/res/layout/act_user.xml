@@ -54,60 +54,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="20dp"
-                android:text="Nome"
+                android:text="Username"
                 android:textColor="#ECB390"
                 android:textSize="26sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/tvUsername"
                 android:layout_width="328dp"
                 android:layout_height="47dp"
                 android:layout_marginStart="32dp"
                 android:ems="10"
-                android:inputType="textPersonName"
                 android:text="Mario"
+                android:textColor="@color/black"
                 android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="20dp"
-                android:text="Cognome"
-                android:textColor="#ECB390"
-                android:textSize="26sp" />
-
-            <EditText
-                android:id="@+id/txtCognome"
-                android:layout_width="336dp"
-                android:layout_height="46dp"
-                android:layout_marginStart="32dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Rossi"
-                android:textSize="24sp" />
-
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="20dp"
-                android:text="Telefono"
-                android:textColor="#ECB390"
-                android:textSize="26sp" />
-
-            <EditText
-                android:id="@+id/txtTel"
-                android:layout_width="332dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="32dp"
-                android:ems="10"
-                android:inputType="phone"
-                android:text="3338723461"
-                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -119,15 +79,38 @@
                 android:textColor="#ECB390"
                 android:textSize="26sp" />
 
-            <EditText
-                android:id="@+id/txtEmail"
+            <TextView
+                android:id="@+id/tvEmail"
                 android:layout_width="332dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="32dp"
                 android:ems="10"
-                android:inputType="textEmailAddress"
+                android:textColor="@color/black"
                 android:text="gigipara@gmail.com"
                 android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="20dp"
+                android:text="Telefono"
+                android:textColor="#ECB390"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/tvTel"
+                android:layout_width="332dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="32dp"
+                android:ems="10"
+                android:text="3338723461"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+
+
 
 
             <Button
