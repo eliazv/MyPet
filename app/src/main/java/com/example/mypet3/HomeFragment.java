@@ -1,5 +1,7 @@
 package com.example.mypet3;
 
+import static com.example.mypet3.LoginActivity.loggedUser;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -79,14 +81,20 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+
         FloatingActionButton buttAdd = (FloatingActionButton)view.findViewById(R.id.btnAdd);
-        buttAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Da HomeFragment a AddPetActivity
-                startActivity( new Intent(getActivity().getApplicationContext(), AddPetActivity.class));
-            }
-        });
+        if(loggedUser!=""){
+            buttAdd.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //Da HomeFragment a AddPetActivity
+                    startActivity( new Intent(getActivity().getApplicationContext(), AddPetActivity.class));
+                }
+            });
+        }
+        else{
+            buttAdd.setVisibility(View.GONE);
+        }
 
         recyclerView = view.findViewById(R.id.petlist);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
