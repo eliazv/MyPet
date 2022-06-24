@@ -42,16 +42,10 @@ public class RegistrActivity extends AppCompatActivity {
         buttClose.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
 
-/*
-        EditText edit_uUser = findViewById(R.id.tvUsername);
-        EditText edit_uemail = findViewById(R.id.txtEmail);
-        EditText edit_utel = findViewById(R.id.txtTel);
-        EditText edit_upass = findViewById(R.id.txtPass);
-        EditText edit_upassconf = findViewById(R.id.txtPassConf);*/
         Button buttReg = findViewById(R.id.btnRegistr);
         buttReg.setOnClickListener(view -> register());
         /*
@@ -110,6 +104,9 @@ public class RegistrActivity extends AppCompatActivity {
                     if (snapshot.hasChild(userText)){
                         Toast.makeText(getBaseContext(), "Username già esistente.", Toast.LENGTH_SHORT).show();
                     }
+                    else if(!passconfText.equals(pswText)) {
+                        Toast.makeText(getBaseContext(), "Le password non corrispondono.", Toast.LENGTH_SHORT).show();
+                    }
                     else{
                         dbRef.child("User").child(userText).child("password").setValue(pswText);
                         dbRef.child("User").child(userText).child("email").setValue(emailText);
@@ -121,10 +118,8 @@ public class RegistrActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                         }
-                    /*
-                    else if((passconfText.equals(password))) {
-                        Toast.makeText(getBaseContext(), "Le password non corrispondono.", Toast.LENGTH_SHORT).show();
-                    }*/
+
+
                 }
 
                 @Override

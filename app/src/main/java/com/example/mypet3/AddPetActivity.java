@@ -83,14 +83,22 @@ public class AddPetActivity extends AppCompatActivity {
             dbRef.child("Pet").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    dbRef.child("Pet").child(nomeText).child("specie").setValue(specieText);
-                    dbRef.child("Pet").child(nomeText).child("descrizione").setValue(descrText);
-                    dbRef.child("Pet").child(nomeText).child("indirizzo").setValue(posizText);
-                    dbRef.child("Pet").child(nomeText).child("proprietario").setValue(loggedUser);
+                    String idPet= nomeText+" - "+loggedUser;
+                    if (snapshot.hasChild(idPet)){
+                        Toast.makeText(getBaseContext(), "Hai già un pet con questo nome.", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        dbRef.child("Pet").child(idPet).child("nome").setValue(nomeText);
+                        dbRef.child("Pet").child(idPet).child("specie").setValue(specieText);
+                        dbRef.child("Pet").child(idPet).child("descrizione").setValue(descrText);
+                        dbRef.child("Pet").child(idPet).child("indirizzo").setValue(posizText);
+                        dbRef.child("Pet").child(idPet).child("proprietario").setValue(loggedUser);
 
-                    Toast.makeText(getApplicationContext(), "Pet aggiunto con successo!", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    finish();
+                        Toast.makeText(getApplicationContext(), "Pet aggiunto con successo!", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        finish();
+                    }
+
                 }
 
                 @Override

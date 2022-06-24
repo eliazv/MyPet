@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         buttClose.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
 
