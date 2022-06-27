@@ -49,7 +49,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView nome, descr; //+ image
+        TextView nome;
+        TextView descr;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 

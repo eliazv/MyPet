@@ -1,46 +1,27 @@
 package DBClass;
 
-import android.graphics.Bitmap;
-import android.media.Image;
-import android.util.Log;
-
-import com.google.zxing.WriterException;
-import com.google.zxing.qrcode.encoder.QRCode;
-
-import androidmads.library.qrgenearator.QRGContents;
-import androidmads.library.qrgenearator.QRGEncoder;
-
 public class Pet {
     public String nome;
     public String descr;
     public String posiz;
     public String specie;
-    public String propr;
-    public Image imgPet;
-    public QRGEncoder qrgEncoder;
+    public String proprietario;
+    //public Image imgPet;
+    //public QRGEncoder qrgEncoder;
 
 
+ public Pet(){}
 
 
-
-    Pet(){}
-    //senza user email
-    public Pet(String nome, String descr, String posiz, String specie){
-        this.nome=nome;
-        this.descr=descr;
-        this.posiz=posiz;
-        this.specie=specie;
-    }
-
-
-    public Pet(String nome, String descr, String posiz, String specie, String propr){
-        this.nome=nome;
-        this.descr=descr;
-        this.posiz=posiz;
-        this.specie=specie;
-        this.propr=propr;
-    }
 /*
+  public Pet(String nome, String descr, String posiz, String specie, String propr){
+        this.nome=nome;
+        this.descr=descr;
+        this.posiz=posiz;
+        this.specie=specie;
+        this.proprietario =propr;
+    }
+
     public Pet(String nome, String descr, String posiz, String specie, User user){
         this.nome=nome;
         this.descr=descr;
@@ -54,9 +35,9 @@ public class Pet {
 
 
 
-    public String getPropr() {return propr;}
+    public String getProprietario() {return proprietario;}
 
-    public void setPropr(String email) {this.propr = email;}
+    public void setProprietario(String email) {this.proprietario = email;}
 
     public String getNome() {
         return nome;

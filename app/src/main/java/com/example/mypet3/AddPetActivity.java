@@ -19,9 +19,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import DBClass.DBPet;
+import DBClass.Pet;
+
 public class AddPetActivity extends AppCompatActivity {
 
     DatabaseReference dbRef;
+    DBPet pushPetInDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,26 +46,6 @@ public class AddPetActivity extends AppCompatActivity {
         Button buttAdd = findViewById(R.id.btnAddPet);
         buttAdd.setOnClickListener(view -> addPet());
 
-        /*
-        EditText edit_pnome = findViewById(R.id.tvUsername);
-        EditText edit_ppos = findViewById(R.id.txtCognome);
-        EditText edit_pspecie = findViewById(R.id.txtEmail);
-        EditText edit_pdescr = findViewById(R.id.txtTel);
-        Button buttSub = findViewById(R.id.btnRegistr);
-        DBPet PetDB = new DBPet();
-        buttSub.setOnClickListener(v-> {
-            Pet newPet = new Pet(edit_pnome.getText().toString(), edit_pdescr.getText().toString(),
-                    edit_ppos.getText().toString(), edit_pspecie.getText().toString());
-
-            PetDB.add(newPet).addOnSuccessListener(suc -> {
-                Toast.makeText(this, "Pet inserito correttamente.", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            }).addOnFailureListener(er -> {
-                Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
-            });
-        });*/
-
-
     }
 
     public void addPet(){
@@ -77,6 +61,15 @@ public class AddPetActivity extends AppCompatActivity {
         EditText descr = findViewById(R.id.txtDescr);
         String descrText = descr.getText().toString();
 
+/*
+        //pushPetInDB = new DBPet();
+        pushPetInDB.add(newPet).addOnSuccessListener(suc -> {
+            Toast.makeText(getApplicationContext(), "Pet inserito correttamente.", Toast.LENGTH_SHORT).show();
+            //startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        }).addOnFailureListener(er -> {
+            Toast.makeText(getApplicationContext(), "ERR: " + er.getMessage(), Toast.LENGTH_SHORT).show();
+        });*/
+
         if(posizText.isEmpty() || nomeText.isEmpty() || specieText.isEmpty()  || descrText.isEmpty()){
             Toast.makeText(getBaseContext(), "Compila tutti i campi.", Toast.LENGTH_SHORT).show();
         } else {
@@ -90,9 +83,16 @@ public class AddPetActivity extends AppCompatActivity {
                     else{
                         dbRef.child("Pet").child(idPet).child("nome").setValue(nomeText);
                         dbRef.child("Pet").child(idPet).child("specie").setValue(specieText);
-                        dbRef.child("Pet").child(idPet).child("descrizione").setValue(descrText);
-                        dbRef.child("Pet").child(idPet).child("indirizzo").setValue(posizText);
+                        dbRef.child("Pet").child(idPet).child("descr").setValue(descrText);
+                        dbRef.child("Pet").child(idPet).child("posiz").setValue(posizText);
                         dbRef.child("Pet").child(idPet).child("proprietario").setValue(loggedUser);
+
+                        Pet newPet = new Pet();//nomeText,descrText,posizText,specieText,loggedUser);
+                        newPet.setNome(nomeText);
+                        newPet.setDescr(descrText);
+                        newPet.setProprietario(loggedUser);
+                        newPet.setSpecie(specieText);
+                        newPet.setPosiz(posizText);
 
                         Toast.makeText(getApplicationContext(), "Pet aggiunto con successo!", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
