@@ -35,7 +35,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Pet currentCardItem = list.get(position);
         holder.nome.setText(currentCardItem.getNome());//
-        holder.descr.setText(currentCardItem.getDescr());
+        holder.descr.setText(currentCardItem.getDescrizione());
     }
 
     @Override

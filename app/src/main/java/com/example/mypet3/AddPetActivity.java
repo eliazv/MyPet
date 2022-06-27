@@ -83,16 +83,16 @@ public class AddPetActivity extends AppCompatActivity {
                     else{
                         dbRef.child("Pet").child(idPet).child("nome").setValue(nomeText);
                         dbRef.child("Pet").child(idPet).child("specie").setValue(specieText);
-                        dbRef.child("Pet").child(idPet).child("descr").setValue(descrText);
-                        dbRef.child("Pet").child(idPet).child("posiz").setValue(posizText);
+                        dbRef.child("Pet").child(idPet).child("descrizione").setValue(descrText);
+                        dbRef.child("Pet").child(idPet).child("indirizzo").setValue(posizText);
                         dbRef.child("Pet").child(idPet).child("proprietario").setValue(loggedUser);
 
                         Pet newPet = new Pet();//nomeText,descrText,posizText,specieText,loggedUser);
                         newPet.setNome(nomeText);
-                        newPet.setDescr(descrText);
+                        newPet.setDescrizione(descrText);
                         newPet.setProprietario(loggedUser);
                         newPet.setSpecie(specieText);
-                        newPet.setPosiz(posizText);
+                        newPet.setIndirizzo(posizText);
 
                         Toast.makeText(getApplicationContext(), "Pet aggiunto con successo!", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));

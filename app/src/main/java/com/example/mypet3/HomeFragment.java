@@ -90,7 +90,7 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        /*
+
 
         FloatingActionButton buttAdd = (FloatingActionButton)view.findViewById(R.id.btnAdd);
         if(loggedUser!=""){
@@ -106,11 +106,11 @@ public class HomeFragment extends Fragment {
             buttAdd.setVisibility(View.GONE);
         }
 
-        recyclerView = view.findViewById(R.id.petlist);
+        recyclerView = view.findViewById(R.id.petRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
-        list = new ArrayList<>();
-        myAdapter = new HomeAdapter(getContext(), list);
+        petList = new ArrayList<>();
+        myAdapter = new HomeAdapter(getContext(), petList);
         recyclerView.setAdapter(myAdapter);
 
         dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mypet---android-app-default-rtdb.firebaseio.com/");
@@ -120,7 +120,7 @@ public class HomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot sn : snapshot.getChildren()){
                     Pet p = sn.getValue(Pet.class);
-                    list.add(p);
+                    petList.add(p);
                 }
             }
 
@@ -128,7 +128,7 @@ public class HomeFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
+        });
         return view;
     }
 }

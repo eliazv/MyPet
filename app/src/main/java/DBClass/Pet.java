@@ -2,8 +2,8 @@ package DBClass;
 
 public class Pet {
     public String nome;
-    public String descr;
-    public String posiz;
+    public String descrizione;
+    public String indirizzo;
     public String specie;
     public String proprietario;
     //public Image imgPet;
@@ -47,12 +47,12 @@ public class Pet {
         this.nome = nome;
     }
 
-    public String getDescr() {
-        return descr;
+    public String getDescrizione() {
+        return descrizione;
     }
 
-    public void setDescr(String descr) {
-        this.descr = descr;
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
     }
 
     public String getSpecie() {return specie;}
@@ -61,11 +61,11 @@ public class Pet {
         this.specie = specie;
     }
 
-    public String getPosiz() {
-        return posiz;
+    public String getIndirizzo() {
+        return indirizzo;
     }
 
-    public void setPosiz(String posiz) {
-        this.posiz = posiz;
+    public void setIndirizzo(String indirizzo) {
+        this.indirizzo = indirizzo;
     }
 }
