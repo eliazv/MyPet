@@ -56,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
         });
+
+        //va in un'altra e torna
+
     }
 
 

@@ -82,6 +82,15 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        if (petList == null) {
+            Pet newPet= new Pet();//nomeText,descrText,posizText,specieText,loggedUser);
+            newPet.setNome("nomeText");
+            newPet.setDescrizione("descrText");
+            newPet.setProprietario(loggedUser);
+            newPet.setSpecie("specieText");
+            newPet.setIndirizzo("posizText");
+            petList.add(newPet);
+        }
     }
 
     @Override
@@ -91,7 +100,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
 
-
+/*
         FloatingActionButton buttAdd = (FloatingActionButton)view.findViewById(R.id.btnAdd);
         if(loggedUser!=""){
             buttAdd.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +122,10 @@ public class HomeFragment extends Fragment {
         myAdapter = new HomeAdapter(getContext(), petList);
         recyclerView.setAdapter(myAdapter);
 
+        if (petList != null) {
+            petList.clear();
+        }
+
         dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mypet---android-app-default-rtdb.firebaseio.com/");
 
         dbRef.child("Pet").addValueEventListener(new ValueEventListener() {
@@ -129,6 +142,16 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        if (petList == null) {
+            Pet newPet= new Pet();//nomeText,descrText,posizText,specieText,loggedUser);
+            newPet.setNome("nomeText");
+            newPet.setDescrizione("descrText");
+            newPet.setProprietario(loggedUser);
+            newPet.setSpecie("specieText");
+            newPet.setIndirizzo("posizText");
+            petList.add(newPet);
+        }*/
+
         return view;
     }
 }
