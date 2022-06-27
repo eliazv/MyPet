@@ -133,7 +133,7 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
 
         googleMap.setPadding(0, 150, 0, 0); //numTop = padding of your choice
 
-        dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://dailyart-a8682-default-rtdb.firebaseio.com/");
+        dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mypet---android-app-default-rtdb.firebaseio.com/");
 
         mMap.setOnMarkerClickListener(this);
 

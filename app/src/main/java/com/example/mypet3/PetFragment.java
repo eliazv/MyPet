@@ -40,26 +40,17 @@ public class PetFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_pet, container, false);
 
+        //QRCode
         qrIV = view.findViewById(R.id.qrimg);
-
-        qrgEncoder = new QRGEncoder("ciao",null, QRGContents.Type.TEXT, 10);
-        //Bitmap bitmap = qrgEncoder.getBitmap();
-        //imgqr.setImageBitmap(bitmap);*/
-        //bitmap = qrgEncoder.encode();
-        //qrgEncoder.createbitmap();
-
         String myText ="ciao";
-
         MultiFormatWriter mWriter = new MultiFormatWriter();
+
         try {
             //BitMatrix class to encode entered text and set Width & Height
             BitMatrix mMatrix = mWriter.encode(myText, BarcodeFormat.QR_CODE, 400,400);
             BarcodeEncoder mEncoder = new BarcodeEncoder();
             Bitmap mBitmap = mEncoder.createBitmap(mMatrix);//creating bitmap of code
             qrIV.setImageBitmap(mBitmap);//Setting generated QR code to imageView
-            // to hide the keyboard
-            //InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            //manager.hideSoftInputFromWindow(etText.getApplicationWindowToken(), 0);
         } catch (WriterException e) {
             e.printStackTrace();
         }
@@ -67,5 +58,7 @@ public class PetFragment extends Fragment {
 
         return view;
     }
+
+
 
 }
