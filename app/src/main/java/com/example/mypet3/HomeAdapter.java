@@ -15,11 +15,9 @@ import DBClass.Pet;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
 
-    Context context;
     ArrayList<Pet> list;
 
-    public HomeAdapter(Context context, ArrayList<Pet> list) {
-        this.context = context;
+    public HomeAdapter( ArrayList<Pet> list) {
         this.list = list;
     }
 

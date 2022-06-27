@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     replaceFragment(new HomeFragment());
                     break;
                 case R.id.map:
-                    replaceFragment(new MapFragment());
+                    replaceFragment(new PetFragment());
                     break;
                 case R.id.camera:
                     replaceFragment(new CamFragment());

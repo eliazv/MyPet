@@ -39,7 +39,6 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         FloatingActionButton buttAdd = (FloatingActionButton)view.findViewById(R.id.btnAdd);
         if(loggedUser!=""){
             buttAdd.setOnClickListener(new View.OnClickListener() {
@@ -54,12 +53,11 @@ public class HomeFragment extends Fragment {
             buttAdd.setVisibility(View.GONE);
         }
 
-
         recyclerView = view.findViewById(R.id.petRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
         petList = new ArrayList<>();
-        myAdapter = new HomeAdapter(getContext(), petList);
+        myAdapter = new HomeAdapter(petList);
         recyclerView.setAdapter(myAdapter);
 
         if (petList != null) {
@@ -82,6 +80,7 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        /*
         if (petList == null) {
             Pet newPet= new Pet();//nomeText,descrText,posizText,specieText,loggedUser);
             newPet.setNome("nomeText");
@@ -90,7 +89,7 @@ public class HomeFragment extends Fragment {
             newPet.setSpecie("specieText");
             newPet.setIndirizzo("posizText");
             petList.add(newPet);
-        }
+        }*/
     }
 
     @Override
