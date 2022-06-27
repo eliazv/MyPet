@@ -140,7 +140,7 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
         setMarker();
 
         if(currentPet != null){
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(0,0),15));//currentPet.getLatitude(), currentPet.getLongitude()), 15));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(44.1160742,12.3261798),15));//currentPet.getLatitude(), currentPet.getLongitude()), 15));
         }
         else{
 
@@ -161,7 +161,8 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
                 int count = 0;
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Pet Pet = dataSnapshot.getValue(Pet.class);
-                    MarkerOptions m = new MarkerOptions().title(Pet.getNome()).position(new LatLng(0,0));//Pet.getLatitude(), Pet.getLongitude()));
+                    //mette il marker
+                    MarkerOptions m = new MarkerOptions().title(Pet.getNome()).position(new LatLng(44.1160742,12.3261798));//Pet.getLatitude(), Pet.getLongitude()));
 
                     mMap.addMarker(m);
                 }

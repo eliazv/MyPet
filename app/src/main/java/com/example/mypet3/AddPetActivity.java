@@ -19,8 +19,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mypet3.databinding.ActivityMainBinding;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.AutocompleteActivity;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,7 +37,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import DBClass.DBPet;
@@ -41,11 +49,28 @@ public class AddPetActivity extends AppCompatActivity {
 
     DatabaseReference dbRef;
 
+    EditText nome, descr, posiz, specie;
+
     ActivityMainBinding binding;
     Uri imageUri;
     StorageReference storageReference;
     ProgressDialog progressDialog;
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==100 && resultCode==RESULT_OK){
+            Place place= Autocomplete.getPlaceFromIntent(data);
+            posiz.setText(place.getAddress());
+
+        }
+        else if(resultCode== AutocompleteActivity.RESULT_ERROR){
+            Status status = Autocomplete.getStatusFromIntent(data);
+            Toast.makeText(getApplicationContext(),status.getStatusMessage(), Toast.LENGTH_SHORT).show();
+
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,23 +100,38 @@ public class AddPetActivity extends AppCompatActivity {
         });
 
 
+        nome = findViewById(R.id.txtNome);
+        String nomeText = nome.getText().toString();
+
+        posiz = findViewById(R.id.txtPos);
+        String posizText = posiz.getText().toString();
+
+        specie = findViewById(R.id.txtPos);
+        String specieText = specie.getText().toString();
+
+        descr = findViewById(R.id.txtDescr);
+        String descrText = descr.getText().toString();
+
+
+        Places.initialize(getApplicationContext(), "AIzaSyAB5lMHHIXdT8E4jkf7i5rpuoKATAEoYOM");
+
+        posiz.setFocusable(false);
+        posiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                List<Place.Field> fieldList = Arrays.asList(Place.Field.ADDRESS, Place.Field.LAT_LNG, Place.Field.NAME);
+                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,fieldList).build(AddPetActivity.this);
+                startActivityForResult(intent,100);
+            }
+        });
+
         Button buttAdd = findViewById(R.id.btnAddPet);
-        buttAdd.setOnClickListener(view -> addPet());
+        buttAdd.setOnClickListener(view -> addPet(nomeText, posizText, specieText, descrText));
 
     }
 
-    public void addPet(){
-        EditText nome = findViewById(R.id.txtNome);
-        String nomeText = nome.getText().toString();
+    public void addPet(String nomeText,String posizText, String specieText, String descrText){
 
-        EditText posiz = findViewById(R.id.txtPos);
-        String posizText = posiz.getText().toString();
-
-        EditText specie = findViewById(R.id.txtPos);
-        String specieText = specie.getText().toString();
-
-        EditText descr = findViewById(R.id.txtDescr);
-        String descrText = descr.getText().toString();
 
 /*
         //pushPetInDB = new DBPet();
@@ -140,6 +180,8 @@ public class AddPetActivity extends AppCompatActivity {
             });
         }
     }
+
+
 /*
     public void selectImage(){
         Intent intent = new Intent();
