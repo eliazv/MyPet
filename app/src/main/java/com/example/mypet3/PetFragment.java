@@ -1,7 +1,9 @@
 package com.example.mypet3;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,11 +14,15 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
+
+import java.io.File;
 
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
@@ -25,6 +31,8 @@ public class PetFragment extends Fragment {
 
     public QRGEncoder qrgEncoder;
     ImageView qrIV;
+    StorageReference storageReference;
+    FirebaseStorage storage;
 
 
     @Override
@@ -40,7 +48,30 @@ public class PetFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_pet, container, false);
 
-        //QRCode
+
+        //imageView
+        /*
+        String fileName = idPet;
+        storageReference = FirebaseStorage.getInstance().getReference("images/"+fileName+ ".jpeg");
+
+        storage = FirebaseStorage.getInstance();
+
+        imgPet = findViewById(R.id.imgProfilePhoto);
+        try {
+            storageReference = storage.getReference().child("image/" + LoginActivity.loggedUser + ".jpeg");
+
+            File file = File.createTempFile(LoginActivity.loggedUser, "jpeg");
+            storageReference.getFile(file).addOnSuccessListener(taskSnapshot -> {
+                Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+                imgPet.setImageBitmap(bitmap);
+            });
+        } catch (Exception e){
+            e.getMessage();
+        }*/
+
+
+
+        //----------------QRCode
         qrIV = view.findViewById(R.id.qrimg);
         String myText ="ciao";
         MultiFormatWriter mWriter = new MultiFormatWriter();

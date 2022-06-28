@@ -4,15 +4,26 @@ import static com.example.mypet3.LoginActivity.loggedUser;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mypet3.databinding.ActivityMainBinding;
@@ -34,6 +45,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -44,14 +57,20 @@ import DBClass.DBPet;
 import DBClass.Pet;
 
 public class AddPetActivity extends AppCompatActivity {
+    private static final int PERMISSION_CAMERA = 1;
+    private static final int PERMISSION_GALLERY = 2;
 
     DatabaseReference dbRef;
     EditText nome, descr, posiz, specie;
+    ImageView imgPet;
+    String idPet;
 
     ActivityMainBinding binding;
     Uri imageUri ;
     StorageReference storageReference;
     ProgressDialog progressDialog;
+    FirebaseStorage storage;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +78,8 @@ public class AddPetActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_pet);
 
         dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mypet---android-app-default-rtdb.firebaseio.com/");
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
 
         ImageButton buttClose = (ImageButton) findViewById(R.id.btnClose);
         buttClose.setOnClickListener(new View.OnClickListener(){
@@ -82,6 +103,10 @@ public class AddPetActivity extends AppCompatActivity {
         descr = findViewById(R.id.txtDescr);
         String descrText = descr.getText().toString();
 
+        imgPet =findViewById(R.id.imgPetAdd);
+
+        Button btnSelectPhoto = findViewById(R.id.btnAddPetImage);
+        btnSelectPhoto.setOnClickListener(v -> selectPhoto());
 
         Button buttAdd = findViewById(R.id.btnAddPet);
         buttAdd.setOnClickListener(view -> addPet());
@@ -109,7 +134,7 @@ public class AddPetActivity extends AppCompatActivity {
             dbRef.child("Pet").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    String idPet= nomeText+" - "+loggedUser;
+                    idPet= nomeText+" - "+loggedUser;
                     if (snapshot.hasChild(idPet)){
                         Toast.makeText(getBaseContext(), "Hai già un pet con questo nome.", Toast.LENGTH_SHORT).show();
                     }
@@ -119,6 +144,7 @@ public class AddPetActivity extends AppCompatActivity {
                         dbRef.child("Pet").child(idPet).child("descrizione").setValue(descrText);
                         dbRef.child("Pet").child(idPet).child("indirizzo").setValue(posizText);
                         dbRef.child("Pet").child(idPet).child("proprietario").setValue(loggedUser);
+                        uploadPicture();
 
                         Toast.makeText(getApplicationContext(), "Pet aggiunto con successo!", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
@@ -149,9 +175,12 @@ public class AddPetActivity extends AppCompatActivity {
         });
     }
 
+    /*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+
         if(requestCode==100 && resultCode==RESULT_OK){
             Place place= Autocomplete.getPlaceFromIntent(data);
             posiz.setText(place.getAddress());
@@ -161,40 +190,37 @@ public class AddPetActivity extends AppCompatActivity {
             Status status = Autocomplete.getStatusFromIntent(data);
             Toast.makeText(getApplicationContext(),status.getStatusMessage(), Toast.LENGTH_SHORT).show();
 
-        }
+        }*/
+
         /*if (requestCode == 100 && data != null && data.getData() != null){
 
             imageUri = data.getData();
             binding.imageView.setImageURI(imageUri);
 
-        }*/
-    }
+        }
+    }*/
 
 
     public void selectImage(){
+        /*
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent,100);
+        startActivityForResult(intent,100);*/
+
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        startActivityForResult(intent, PERMISSION_GALLERY);
     }
 
     private void uploadImage() {
-
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Uploading File....");
         progressDialog.show();
 
-
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.ITALY);
-        Date now = new Date();
-        String fileName = formatter.format(now);
+        String fileName = idPet;
         storageReference = FirebaseStorage.getInstance().getReference("images/"+fileName);
-
-        //textview
-        //TextView PetNameD =  findViewById(R.id.tvImageName);
-        //PetNameD.setText(fileName);
-
 
         storageReference.putFile(imageUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -215,6 +241,78 @@ public class AddPetActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Failed to Upload",Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+
+    private void requestPermissionPhoto(){
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, PERMISSION_CAMERA);
+    }
+
+    private void requestPermissionGallery(){
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_GALLERY);
+    }
+
+    private void selectPhoto() {
+        String options[] = {"Camera", "Galleria"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Seleziona foto da: ");
+        builder.setItems(options, (dialog, which) -> {
+            if (which == 0) {
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    requestPermissionPhoto();
+                } else {
+                    pickFromCamera();
+                }
+            } else if (which == 1) {
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    requestPermissionGallery();
+                } else {
+                    pickFromGallery();
+                }
+            }
+        });
+        builder.create().show();
+    }
+
+    private void pickFromCamera(){
+        Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(i, PERMISSION_CAMERA);
+    }
+
+    private void pickFromGallery(){
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        startActivityForResult(intent, PERMISSION_GALLERY);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == PERMISSION_GALLERY) {
+                imageUri = data.getData();
+                imgPet.setImageURI(imageUri);
+
+            }
+            if (requestCode == PERMISSION_CAMERA) {
+                Bundle photo = data.getExtras();
+                Bitmap bitmap = (Bitmap) photo.get("data");
+                imgPet.setImageBitmap(bitmap);
+
+                ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+                String path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, null, null);
+
+                imageUri = Uri.parse(path);
+            }
+        }
+    }
+
+    private void uploadPicture() {
+        StorageReference riversRef = storageReference.child("image/" + nome.getText().toString()+loggedUser + ".jpeg");
+        riversRef.putFile(imageUri).addOnSuccessListener(taskSnapshot -> {})
+                .addOnFailureListener(e -> {});
     }
 
 }
