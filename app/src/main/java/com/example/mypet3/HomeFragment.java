@@ -57,8 +57,10 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
         petList = new ArrayList<>();
-        myAdapter = new HomeAdapter(petList);
+        myAdapter = new HomeAdapter(petList,getActivity());
         recyclerView.setAdapter(myAdapter);
+
+
 
         if (petList != null) {
             petList.clear();
@@ -73,6 +75,7 @@ public class HomeFragment extends Fragment {
                     Pet p = sn.getValue(Pet.class);
                     petList.add(p);
                 }
+                myAdapter.notifyDataSetChanged();
             }
 
             @Override

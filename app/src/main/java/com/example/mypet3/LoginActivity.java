@@ -26,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 public class LoginActivity extends AppCompatActivity {
 
     DatabaseReference dbRef;
-    static String loggedUser = "";
+    static String loggedUser = "e";//TODO poi rimettere a ""
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -2,6 +2,7 @@ package com.example.mypet3;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -14,6 +15,8 @@ import androidx.appcompat.widget.SearchView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
@@ -190,13 +193,20 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
 
     @Override
     public boolean onMarkerClick(@NonNull Marker marker) {
-
+        /*
         Pet markerPet = getMarketPet(marker.getTitle());
 
         if(markerPet != null){
-            //Utilities.insertFragment((AppCompatActivity) getActivity(), new PetDetailsFragment(markerPet), PetDetailsFragment.class.getSimpleName());
-        }
+            Utilities.insertFragment((AppCompatActivity) getActivity(), new PetFragment(markerPet), PetFragment.class.getSimpleName());
+        }*/
 
+        //TODO da cambiare con il pet giusto
+        FragmentManager fm = getFragmentManager();
+        if (fm != null) {
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.frame_layout, new PetFragment());
+            ft.commit();
+        }
         return false;
     }
 

@@ -6,34 +6,13 @@ public class Pet {
     public String indirizzo;
     public String specie;
     public String proprietario;
-    //public Image imgPet;
-    //public QRGEncoder qrgEncoder;
+    //public String img;
 
 
- public Pet(){}
-
-
+    public Pet(){}
 /*
-  public Pet(String nome, String descr, String posiz, String specie, String propr){
-        this.nome=nome;
-        this.descr=descr;
-        this.posiz=posiz;
-        this.specie=specie;
-        this.proprietario =propr;
-    }
-
-    public Pet(String nome, String descr, String posiz, String specie, User user){
-        this.nome=nome;
-        this.descr=descr;
-        this.posiz=posiz;
-        this.specie=specie;
-        this.proprietario=user;
-        String qrdata= "Nome: "+nome+", Proprietario: "+proprietario.username
-                +", Telefono: "+proprietario.telefono+", Abitazione: "+posiz+", Descrizione: "+descr;
-        this.qrgEncoder = new QRGEncoder(qrdata,null, QRGContents.Type.TEXT, 10);
-    }*/
-
-
+    public String getImg() {  return img;    }
+    public void setImg(String img) { this.img = img;   }*/
 
     public String getProprietario() {return proprietario;}
 

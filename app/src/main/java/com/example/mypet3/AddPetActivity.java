@@ -3,7 +3,6 @@ package com.example.mypet3;
 import static com.example.mypet3.LoginActivity.loggedUser;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -14,8 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mypet3.databinding.ActivityMainBinding;
@@ -32,6 +29,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.annotations.Nullable;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -48,29 +46,12 @@ import DBClass.Pet;
 public class AddPetActivity extends AppCompatActivity {
 
     DatabaseReference dbRef;
-
     EditText nome, descr, posiz, specie;
 
     ActivityMainBinding binding;
-    Uri imageUri;
+    Uri imageUri ;
     StorageReference storageReference;
     ProgressDialog progressDialog;
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==100 && resultCode==RESULT_OK){
-            Place place= Autocomplete.getPlaceFromIntent(data);
-            posiz.setText(place.getAddress());
-
-        }
-        else if(resultCode== AutocompleteActivity.RESULT_ERROR){
-            Status status = Autocomplete.getStatusFromIntent(data);
-            Toast.makeText(getApplicationContext(),status.getStatusMessage(), Toast.LENGTH_SHORT).show();
-
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,17 +70,6 @@ public class AddPetActivity extends AppCompatActivity {
         });
 
 
-        Button buttImg =  findViewById(R.id.btnAddPetImage);
-        buttImg.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                //selectImage();
-
-                //uploadImage();//non qui ma in aggiungi
-            }
-        });
-
-
         nome = findViewById(R.id.txtNome);
         String nomeText = nome.getText().toString();
 
@@ -113,34 +83,25 @@ public class AddPetActivity extends AppCompatActivity {
         String descrText = descr.getText().toString();
 
 
-        Places.initialize(getApplicationContext(), "AIzaSyAB5lMHHIXdT8E4jkf7i5rpuoKATAEoYOM");
-
-        posiz.setFocusable(false);
-        posiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                List<Place.Field> fieldList = Arrays.asList(Place.Field.ADDRESS, Place.Field.LAT_LNG, Place.Field.NAME);
-                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,fieldList).build(AddPetActivity.this);
-                startActivityForResult(intent,100);
-            }
-        });
-
         Button buttAdd = findViewById(R.id.btnAddPet);
-        buttAdd.setOnClickListener(view -> addPet(nomeText, posizText, specieText, descrText));
+        buttAdd.setOnClickListener(view -> addPet());
+
 
     }
 
-    public void addPet(String nomeText,String posizText, String specieText, String descrText){
+    public void addPet(){
+        EditText nome = findViewById(R.id.txtNome);
+        String nomeText = nome.getText().toString();
 
+        EditText posiz = findViewById(R.id.txtPos);
+        String posizText = posiz.getText().toString();
 
-/*
-        //pushPetInDB = new DBPet();
-        pushPetInDB.add(newPet).addOnSuccessListener(suc -> {
-            Toast.makeText(getApplicationContext(), "Pet inserito correttamente.", Toast.LENGTH_SHORT).show();
-            //startActivity(new Intent(getApplicationContext(), MainActivity.class));
-        }).addOnFailureListener(er -> {
-            Toast.makeText(getApplicationContext(), "ERR: " + er.getMessage(), Toast.LENGTH_SHORT).show();
-        });*/
+        EditText specie = findViewById(R.id.txtPos);
+        String specieText = specie.getText().toString();
+
+        EditText descr = findViewById(R.id.txtDescr);
+        String descrText = descr.getText().toString();
+
 
         if(posizText.isEmpty() || nomeText.isEmpty() || specieText.isEmpty()  || descrText.isEmpty()){
             Toast.makeText(getBaseContext(), "Compila tutti i campi.", Toast.LENGTH_SHORT).show();
@@ -159,13 +120,6 @@ public class AddPetActivity extends AppCompatActivity {
                         dbRef.child("Pet").child(idPet).child("indirizzo").setValue(posizText);
                         dbRef.child("Pet").child(idPet).child("proprietario").setValue(loggedUser);
 
-                        Pet newPet = new Pet();//nomeText,descrText,posizText,specieText,loggedUser);
-                        newPet.setNome(nomeText);
-                        newPet.setDescrizione(descrText);
-                        newPet.setProprietario(loggedUser);
-                        newPet.setSpecie(specieText);
-                        newPet.setIndirizzo(posizText);
-
                         Toast.makeText(getApplicationContext(), "Pet aggiunto con successo!", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         finish();
@@ -181,8 +135,42 @@ public class AddPetActivity extends AppCompatActivity {
         }
     }
 
+    public void placeAutocomplete(){
+        Places.initialize(getApplicationContext(), "AIzaSyAB5lMHHIXdT8E4jkf7i5rpuoKATAEoYOM");
 
-/*
+        posiz.setFocusable(false);
+        posiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                List<Place.Field> fieldList = Arrays.asList(Place.Field.ADDRESS, Place.Field.LAT_LNG, Place.Field.NAME);
+                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,fieldList).build(AddPetActivity.this);
+                startActivityForResult(intent,100);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==100 && resultCode==RESULT_OK){
+            Place place= Autocomplete.getPlaceFromIntent(data);
+            posiz.setText(place.getAddress());
+
+        }
+        else if(resultCode== AutocompleteActivity.RESULT_ERROR){
+            Status status = Autocomplete.getStatusFromIntent(data);
+            Toast.makeText(getApplicationContext(),status.getStatusMessage(), Toast.LENGTH_SHORT).show();
+
+        }
+        /*if (requestCode == 100 && data != null && data.getData() != null){
+
+            imageUri = data.getData();
+            binding.imageView.setImageURI(imageUri);
+
+        }*/
+    }
+
+
     public void selectImage(){
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -191,6 +179,7 @@ public class AddPetActivity extends AppCompatActivity {
     }
 
     private void uploadImage() {
+
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Uploading File....");
@@ -226,18 +215,6 @@ public class AddPetActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Failed to Upload",Toast.LENGTH_SHORT).show();
                     }
                 });
-
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == 100 && data != null && data.getData() != null){
-
-            imageUri = data.getData();
-            //binding.imageView4.setImageURI(imageUri);
-
-        }
-    }*/
 }
