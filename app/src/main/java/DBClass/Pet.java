@@ -6,13 +6,13 @@ public class Pet {
     public String indirizzo;
     public String specie;
     public String proprietario;
-    //public String img;
+    public String img;
 
 
     public Pet(){}
-/*
+
     public String getImg() {  return img;    }
-    public void setImg(String img) { this.img = img;   }*/
+    public void setImg(String img) { this.img = img;   }
 
     public String getProprietario() {return proprietario;}
 

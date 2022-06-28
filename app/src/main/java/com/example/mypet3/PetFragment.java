@@ -30,7 +30,7 @@ import androidmads.library.qrgenearator.QRGEncoder;
 public class PetFragment extends Fragment {
 
     public QRGEncoder qrgEncoder;
-    ImageView qrIV;
+    ImageView qrIV, petImg;
     StorageReference storageReference;
     FirebaseStorage storage;
 
@@ -50,24 +50,21 @@ public class PetFragment extends Fragment {
 
 
         //imageView
-        /*
-        String fileName = idPet;
-        storageReference = FirebaseStorage.getInstance().getReference("images/"+fileName+ ".jpeg");
 
         storage = FirebaseStorage.getInstance();
 
-        imgPet = findViewById(R.id.imgProfilePhoto);
+        petImg = view.findViewById(R.id.imgPetProfile);
         try {
-            storageReference = storage.getReference().child("image/" + LoginActivity.loggedUser + ".jpeg");
+            storageReference = storage.getReference().child("image/" + "nuovoe" + ".jpeg");
 
             File file = File.createTempFile(LoginActivity.loggedUser, "jpeg");
             storageReference.getFile(file).addOnSuccessListener(taskSnapshot -> {
                 Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
-                imgPet.setImageBitmap(bitmap);
+                petImg.setImageBitmap(bitmap);
             });
         } catch (Exception e){
             e.getMessage();
-        }*/
+        }
 
 
 

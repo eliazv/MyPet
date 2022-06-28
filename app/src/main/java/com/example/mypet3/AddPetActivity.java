@@ -144,6 +144,7 @@ public class AddPetActivity extends AppCompatActivity {
                         dbRef.child("Pet").child(idPet).child("descrizione").setValue(descrText);
                         dbRef.child("Pet").child(idPet).child("indirizzo").setValue(posizText);
                         dbRef.child("Pet").child(idPet).child("proprietario").setValue(loggedUser);
+                        dbRef.child("Pet").child(idPet).child("img").setValue("image/" + nome.getText().toString()+loggedUser + ".jpeg");
                         uploadPicture();
 
                         Toast.makeText(getApplicationContext(), "Pet aggiunto con successo!", Toast.LENGTH_SHORT).show();
