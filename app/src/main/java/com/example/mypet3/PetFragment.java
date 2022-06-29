@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -33,6 +34,20 @@ public class PetFragment extends Fragment {
     ImageView qrIV, petImg;
     StorageReference storageReference;
     FirebaseStorage storage;
+    String idPet;
+    String nomePet, user;
+
+    public PetFragment(){
+
+    }
+    public PetFragment(String idPet){
+        this.idPet=idPet;
+    }
+    //TODO da usare il seguente
+    public PetFragment(String nomePet, String user){
+        this.nomePet=nomePet;
+        this.user=user;
+    }
 
 
     @Override
@@ -49,10 +64,18 @@ public class PetFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_pet, container, false);
 
 
-        //imageView
+        //---Set Data
 
+        //prendi dal db
+        
+        TextView PetNameD =  view.findViewById(R.id.tvNamePetFr);
+        PetNameD.setText(idPet);
+
+
+
+
+        //-----Set imageView
         storage = FirebaseStorage.getInstance();
-
         petImg = view.findViewById(R.id.imgPetProfile);
         try {
             storageReference = storage.getReference().child("image/" + "nuovoe" + ".jpeg");
@@ -68,7 +91,7 @@ public class PetFragment extends Fragment {
 
 
 
-        //----------------QRCode
+        //-------QRCode
         qrIV = view.findViewById(R.id.qrimg);
         String myText ="ciao";
         MultiFormatWriter mWriter = new MultiFormatWriter();

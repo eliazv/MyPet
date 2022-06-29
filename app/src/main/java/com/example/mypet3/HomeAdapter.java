@@ -108,7 +108,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
                     FragmentManager fm = ((AppCompatActivity)context).getSupportFragmentManager();
                     if (fm != null) {
                         FragmentTransaction ft = fm.beginTransaction();
-                        ft.replace(R.id.frame_layout, new PetFragment());
+                        ft.replace(R.id.frame_layout, new PetFragment(nome.getText().toString()));//TODO passare l'utente
                         ft.commit();
                     }
                 }
