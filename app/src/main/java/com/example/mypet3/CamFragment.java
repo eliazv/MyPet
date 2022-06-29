@@ -1,11 +1,15 @@
 package com.example.mypet3;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,8 +31,8 @@ public class CamFragment extends Fragment {
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                                  @Nullable Bundle savedInstanceState) {
             final Activity activity = getActivity();
-            View root = inflater.inflate(R.layout.fragment_cam, container, false);
-            CodeScannerView scannerView = root.findViewById(R.id.scanner_view);
+            View view = inflater.inflate(R.layout.fragment_cam, container, false);
+            CodeScannerView scannerView = view.findViewById(R.id.scanner_view);
             mCodeScanner = new CodeScanner(activity, scannerView);
             mCodeScanner.setDecodeCallback(new DecodeCallback() {
                 @Override
@@ -37,8 +41,27 @@ public class CamFragment extends Fragment {
                         @Override
                         public void run() {
                             //Toast.makeText(activity, result.getText(), Toast.LENGTH_SHORT).show();
-                            TextView PetNameD =  root.findViewById(R.id.txtQr);
-                            PetNameD.setText(result.getText());
+
+                            //splitta...
+                            String[] separated = result.getText().split(";");
+                            //da dopo Nome: a prima di ;
+                            String nomePet=separated[0].substring(6);
+                            //da dopo Proprietario: a prima di ;
+                            String nomeUser=separated[1].substring(15);
+
+                            //reinderizza a petFr
+                            Context context = view.getContext();
+                            FragmentManager fm = ((AppCompatActivity)context).getSupportFragmentManager();
+                            if (fm != null) {
+                                FragmentTransaction ft = fm.beginTransaction();
+                                ft.replace(R.id.frame_layout, new PetFragment(nomePet, nomeUser));//TODO passare l'utente
+                                ft.commit();
+                            }
+
+                            //stampa testo
+                            TextView QRText =  view.findViewById(R.id.txtQr);
+                            QRText.setText(result.getText());
+
                         }
                     });
                 }
@@ -49,7 +72,7 @@ public class CamFragment extends Fragment {
                     mCodeScanner.startPreview();
                 }
             });
-            return root;
+            return view;
         }
 
         @Override

@@ -122,7 +122,7 @@ public class PetFragment extends Fragment {
 
                     //-----QRCode
                     qrIV = view.findViewById(R.id.qrimg);
-                    qrText ="Nome: "+nomePet+"; Casa: "+ getCasa +"; Telefono: "+ getTel+"; Descrizione: "+ getDescr+".";
+                    qrText ="Nome: "+nomePet+"; Proprietario: "+user+"; Telefono: "+ getTel+"; Casa: "+ getCasa +"; Descrizione: "+ getDescr+".";
                     MultiFormatWriter mWriter = new MultiFormatWriter();
 
                     try {
