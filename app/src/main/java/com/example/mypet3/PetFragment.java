@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Paint;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -86,6 +87,7 @@ public class PetFragment extends Fragment {
                     getCasa = snapshot.child(nomePet+" - "+user).child("indirizzo").getValue(String.class);
                     casa =  view.findViewById(R.id.tvCasaPetFr);
                     casa.setText(getCasa);
+                    casa.setPaintFlags(casa.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                     casa.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
