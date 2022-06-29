@@ -83,16 +83,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-        /*
-        if (petList == null) {
-            Pet newPet= new Pet();//nomeText,descrText,posizText,specieText,loggedUser);
-            newPet.setNome("nomeText");
-            newPet.setDescrizione("descrText");
-            newPet.setProprietario(loggedUser);
-            newPet.setSpecie("specieText");
-            newPet.setIndirizzo("posizText");
-            petList.add(newPet);
-        }*/
     }
 
     @Override
@@ -101,59 +91,9 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-
-/*
-        FloatingActionButton buttAdd = (FloatingActionButton)view.findViewById(R.id.btnAdd);
-        if(loggedUser!=""){
-            buttAdd.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //Da HomeFragment a AddPetActivity
-                    startActivity( new Intent(getActivity().getApplicationContext(), AddPetActivity.class));
-                }
-            });
-        }
-        else{
-            buttAdd.setVisibility(View.GONE);
-        }
-
-        recyclerView = view.findViewById(R.id.petRecyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setHasFixedSize(true);
-        petList = new ArrayList<>();
-        myAdapter = new HomeAdapter(getContext(), petList);
-        recyclerView.setAdapter(myAdapter);
-
-        if (petList != null) {
-            petList.clear();
-        }
-
-        dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mypet---android-app-default-rtdb.firebaseio.com/");
-
-        dbRef.child("Pet").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot sn : snapshot.getChildren()){
-                    Pet p = sn.getValue(Pet.class);
-                    petList.add(p);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        if (petList == null) {
-            Pet newPet= new Pet();//nomeText,descrText,posizText,specieText,loggedUser);
-            newPet.setNome("nomeText");
-            newPet.setDescrizione("descrText");
-            newPet.setProprietario(loggedUser);
-            newPet.setSpecie("specieText");
-            newPet.setIndirizzo("posizText");
-            petList.add(newPet);
-        }*/
-
+        setHasOptionsMenu(true);
         return view;
     }
+
+
 }

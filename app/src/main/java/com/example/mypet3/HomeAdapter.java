@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,6 +34,7 @@ import DBClass.Pet;
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
 
     ArrayList<Pet> list;
+    ArrayList<Pet> fullList;
 
     Activity activity;
 
@@ -42,6 +44,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
     public HomeAdapter( ArrayList<Pet> list, Activity activity) {
 
         this.list = list;
+        this.fullList = new ArrayList<>(list);
         this.activity=activity;
     }
 
@@ -62,7 +65,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         try {
             storageReference = storage.getReference().child("image/" + "nuovoe" + ".jpeg");//currentCardItem.getNome()+loggedUser
             //storageReference = storageReference.child("image/" + currentCardItem.getNome()+loggedUser + ".jpeg");
-            File file = File.createTempFile(LoginActivity.loggedUser, "jpeg");
+            File file = File.createTempFile(LoginActivity.loggedUser, "jpeg");//??
             storageReference.getFile(file).addOnSuccessListener(taskSnapshot -> {
                 Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
                 holder.img.setImageBitmap(bitmap);
@@ -113,4 +116,35 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         }
 
     }
+
+
+    //----Search menu----
+    public Filter getFilter() {
+        return Searched_Filter;
+    }
+    private Filter Searched_Filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<Pet> filteredList = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(fullList);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for (Pet item : fullList) {
+                    if (item.getNome().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            list.clear();
+            list.addAll((ArrayList) results.values);
+            notifyDataSetChanged();
+        }
+    };
 }
