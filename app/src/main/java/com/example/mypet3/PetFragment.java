@@ -33,6 +33,7 @@ import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
@@ -45,7 +46,8 @@ public class PetFragment extends Fragment {
     DatabaseReference dbRef;
 
     ImageView qrIV, petImg;
-    String nomePet, user="e";
+    TextView descr, casa, telefono;
+    String nomePet, user, getCasa, getDescr, getImg, getTel, qrText;
 
     public PetFragment(){}
 
@@ -71,16 +73,16 @@ public class PetFragment extends Fragment {
         dbRef.child("Pet").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.hasChild(nomePet+" - "+user)) {//TODO metti user al posto di e
-                    String getDescr = snapshot.child(nomePet+" - "+user).child("descrizione").getValue(String.class);
-                    TextView descr =  view.findViewById(R.id.tvDescrPetFr);
+                if (snapshot.hasChild(nomePet+" - "+user)) {
+                    getDescr = snapshot.child(nomePet+" - "+user).child("descrizione").getValue(String.class);
+                    descr =  view.findViewById(R.id.tvDescrPetFr);
                     descr.setText(getDescr);
 
-                    String getCasa = snapshot.child(nomePet+" - "+user).child("indirizzo").getValue(String.class);
-                    TextView casa =  view.findViewById(R.id.tvCasaPetFr);
+                    getCasa = snapshot.child(nomePet+" - "+user).child("indirizzo").getValue(String.class);
+                    casa =  view.findViewById(R.id.tvCasaPetFr);
                     casa.setText(getCasa);
 
-                    String getImg = snapshot.child(nomePet+" - "+user).child("img").getValue(String.class);
+                    getImg = snapshot.child(nomePet+" - "+user).child("img").getValue(String.class);
                     //TODO prendere da storage e settare img
 
                 } else {
@@ -97,9 +99,24 @@ public class PetFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.hasChild(user)) {
-                    String getTel = snapshot.child(user).child("telefono").getValue(String.class);
-                    TextView telefono =  view.findViewById(R.id.tvTelPetFr);
+                    getTel = snapshot.child(user).child("telefono").getValue(String.class);
+                    telefono =  view.findViewById(R.id.tvTelPetFr);
                     telefono.setText(getTel);
+
+                    //-----QRCode
+                    qrIV = view.findViewById(R.id.qrimg);
+                    qrText ="Nome: "+nomePet+"; Casa: "+ getCasa +"; Telefono: "+ getTel+"; Descrizione: "+ getDescr+".";
+                    MultiFormatWriter mWriter = new MultiFormatWriter();
+
+                    try {
+                        BitMatrix mMatrix = mWriter.encode(qrText, BarcodeFormat.QR_CODE, 400,400);
+                        BarcodeEncoder mEncoder = new BarcodeEncoder();
+                        Bitmap mBitmap = mEncoder.createBitmap(mMatrix);//creating bitmap of code
+                        qrIV.setImageBitmap(mBitmap);//Setting generated QR code to imageView
+                    } catch (WriterException e) {
+                        e.printStackTrace();
+                    }
+
                 } else {
                     Toast.makeText(getContext(), "Utente non trovato.", Toast.LENGTH_SHORT).show();
                 }
@@ -119,8 +136,6 @@ public class PetFragment extends Fragment {
         tvUser.setText(user);
 
 
-
-
         //-----Set imageView
         storage = FirebaseStorage.getInstance();
         petImg = view.findViewById(R.id.imgPetProfile);
@@ -136,27 +151,7 @@ public class PetFragment extends Fragment {
             e.getMessage();
         }
 
-
-
-        //-------QRCode
-        qrIV = view.findViewById(R.id.qrimg);
-        String myText ="ciao";
-        MultiFormatWriter mWriter = new MultiFormatWriter();
-
-        try {
-            //BitMatrix class to encode entered text and set Width & Height
-            BitMatrix mMatrix = mWriter.encode(myText, BarcodeFormat.QR_CODE, 400,400);
-            BarcodeEncoder mEncoder = new BarcodeEncoder();
-            Bitmap mBitmap = mEncoder.createBitmap(mMatrix);//creating bitmap of code
-            qrIV.setImageBitmap(mBitmap);//Setting generated QR code to imageView
-        } catch (WriterException e) {
-            e.printStackTrace();
-        }
-
-
         return view;
     }
-
-
 
 }
