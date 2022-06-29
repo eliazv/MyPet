@@ -9,6 +9,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -148,8 +149,6 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
         else{
 
         }
-
-
     }
 
     private void setMarker() {
@@ -165,7 +164,8 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Pet Pet = dataSnapshot.getValue(Pet.class);
                     //mette il marker
-                    MarkerOptions m = new MarkerOptions().title(Pet.getNome()).position(new LatLng(44.1160742,12.3261798));//Pet.getLatitude(), Pet.getLongitude()));
+                    LatLng ll =  getLocationFromAddress(Pet.getIndirizzo());
+                    MarkerOptions m = new MarkerOptions().title(Pet.getNome()).position(new LatLng(ll.latitude, ll.longitude));//44.1160742,12.3261798));//Pet.getLatitude(), Pet.getLongitude()));
 
                     mMap.addMarker(m);
                 }
@@ -215,7 +215,7 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    String getPet = dataSnapshot.child("name").getValue(String.class);
+                    String getPet = dataSnapshot.child("nome").getValue(String.class);
                     if (getPet.equals(PetName)) {
                         markerPet = dataSnapshot.getValue(Pet.class);
                     }
@@ -229,6 +229,31 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
         });
 
         return markerPet;
+    }
+
+    public LatLng getLocationFromAddress(String strAddress) {
+
+        Geocoder coder = new Geocoder(getContext());
+        List<Address> address;
+        LatLng p1 = null;
+
+        try {
+            address = coder.getFromLocationName(strAddress, 5);
+            if (address == null) {
+                return null;
+            }
+            Address location = address.get(0);
+            location.getLatitude();
+            location.getLongitude();
+
+            p1 = new LatLng((double) (location.getLatitude() ),
+                    (double) (location.getLongitude()));
+
+            return p1;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }
