@@ -60,7 +60,7 @@
                 android:textSize="28sp" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/tvPadronePetFr"
                 android:layout_width="310dp"
                 android:layout_height="31dp"
                 android:layout_marginStart="44dp"
@@ -84,7 +84,7 @@
                 android:textSize="28sp" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/tvCasaPetFr"
                 android:layout_width="310dp"
                 android:layout_height="73dp"
                 android:layout_marginStart="44dp"
@@ -109,7 +109,7 @@
 
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/tvTelPetFr"
                 android:layout_width="266dp"
                 android:layout_height="37dp"
                 android:layout_marginStart="44dp"
@@ -132,7 +132,7 @@
                 android:textSize="28sp" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/tvDescrPetFr"
                 android:layout_width="310dp"
                 android:layout_height="113dp"
                 android:layout_marginStart="44dp"
