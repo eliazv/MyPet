@@ -71,27 +71,6 @@
 
 
 
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="310dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="44dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="44dp"
-                android:textStyle="bold"
-                android:text="@string/casa"
-                android:textColor="#DF7861"
-                android:textSize="28sp" />
-
-            <TextView
-                android:id="@+id/tvCasaPetFr"
-                android:layout_width="310dp"
-                android:layout_height="73dp"
-                android:layout_marginStart="44dp"
-                android:layout_marginEnd="44dp"
-                android:text="Largo Marino Maestri 68, Gambettola FC"
-                android:textColor="#ECB390"
-                android:textSize="24sp" />
 
 
 
@@ -115,6 +94,29 @@
                 android:layout_marginStart="44dp"
                 android:layout_marginEnd="44dp"
                 android:text="3938932793"
+                android:textColor="#ECB390"
+                android:textSize="24sp" />
+
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="310dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="44dp"
+                android:textStyle="bold"
+                android:text="@string/casa"
+                android:textColor="#DF7861"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tvCasaPetFr"
+                android:layout_width="310dp"
+                android:layout_height="85dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginEnd="44dp"
+                android:text="Largo Marino Maestri 68, Gambettola FC"
                 android:textColor="#ECB390"
                 android:textSize="24sp" />
 

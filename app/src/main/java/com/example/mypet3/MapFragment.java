@@ -7,10 +7,12 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.app.ActivityCompat;
@@ -48,7 +50,9 @@ import com.google.firebase.database.core.utilities.Utilities;
 //import com.google.protobuf.DescriptorProtos;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Vector;
 
 import DBClass.Pet;
@@ -60,8 +64,10 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
     SupportMapFragment mapFragment;
     SearchView sv_map;
     Pet markerPet = null;
+    ArrayList<MarkerOptions> mMarkerArray = new ArrayList<MarkerOptions>();
 
     Pet currentPet;
+    String addrCurrent;
 
     DatabaseReference dbRef;
 
@@ -72,7 +78,16 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
         this.currentPet = currentPet;
     }
 
+    public MapFragment(String addr) {
+        this.addrCurrent = addr;
+    }
+
     public MapFragment() { }
+    /*
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public MapFragment(String nomeP, String user) {
+        zoomPetMarker(nomeP,user);
+    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -143,14 +158,19 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
         mMap.setOnMarkerClickListener(this);
 
         setMarker();
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(43.4254152,11.723322),6));//currentPet.getLatitude(), currentPet.getLongitude()), 15));
 
-
+/*
         if(currentPet != null){
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(41.2035569,8.2223571),15));//currentPet.getLatitude(), currentPet.getLongitude()), 15));
+            LatLng posCurrent=getLocationFromAddress(currentPet.getIndirizzo());
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(posCurrent.latitude, posCurrent.longitude),15));
+        }*/
+        if(addrCurrent!=null){
+            LatLng posCurrent=getLocationFromAddress(addrCurrent);
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(posCurrent.latitude, posCurrent.longitude),16));
+
         }
         else{
-
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(43.4254152,11.723322),6));
         }
     }
 
@@ -169,6 +189,7 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
                     MarkerOptions m = new MarkerOptions().title(Pet.getNome()+"-"+Pet.getProprietario()).position(new LatLng(ll.latitude, ll.longitude))
                             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
                     mMap.addMarker(m);
+                    mMarkerArray.add(m);
                 }
             }
 
@@ -233,6 +254,15 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
         });
 
         return markerPet;
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void zoomPetMarker(String nomeP, String User){
+        //trovare il marker con il titolo giusto
+        MarkerOptions pm = mMarkerArray.stream().filter(m -> m.getTitle().equals(nomeP+"-"+User)).findFirst().orElse(null);
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(pm.getPosition().latitude, pm.getPosition().longitude),9));
+
     }
 
     public LatLng getLocationFromAddress(String strAddress) {

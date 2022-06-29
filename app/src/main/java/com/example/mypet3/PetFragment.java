@@ -6,10 +6,14 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +39,7 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 import java.io.File;
 import java.util.ArrayList;
 
+import DBClass.Pet;
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 
@@ -81,6 +86,18 @@ public class PetFragment extends Fragment {
                     getCasa = snapshot.child(nomePet+" - "+user).child("indirizzo").getValue(String.class);
                     casa =  view.findViewById(R.id.tvCasaPetFr);
                     casa.setText(getCasa);
+                    casa.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            FragmentManager fm = getFragmentManager();
+                            if (fm != null) {
+                                FragmentTransaction ft = fm.beginTransaction();
+                                //Pet p = snapshot.getValue(Pet.class);
+                                ft.replace(R.id.frame_layout, new MapFragment(getCasa));
+                                ft.commit();
+                            }
+                        }
+                    });
 
                     getImg = snapshot.child(nomePet+" - "+user).child("img").getValue(String.class);
                     //TODO prendere da storage e settare img
@@ -150,6 +167,23 @@ public class PetFragment extends Fragment {
         } catch (Exception e){
             e.getMessage();
         }
+
+
+
+        //----to Map
+        TextView addr =  view.findViewById(R.id.tvCasaPetFr);
+        addr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getFragmentManager();
+                if (fm != null) {
+                    FragmentTransaction ft = fm.beginTransaction();
+                    ft.replace(R.id.frame_layout, new PetFragment(nomePet, "e"));
+                    ft.commit();
+                }
+            }
+        });
+
 
         return view;
     }
