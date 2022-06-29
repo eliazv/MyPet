@@ -60,6 +60,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Pet currentCardItem = list.get(position);
 
+        //---Per IMG
         storage = FirebaseStorage.getInstance();
         //storageReference = FirebaseStorage.getInstance().getReferenceFromUrl("gs://mypet---android-app.appspot.com/");
         try {
@@ -77,8 +78,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         //Drawable drawable = AppCompatResources.getDrawable(activity, activity.getResources()
                 //.getIdentifier(imagePath, "drawable", activity.getPackageName()));
         //holder.img.setImageDrawable(drawable);
+
         holder.nome.setText(currentCardItem.getNome());
         holder.descr.setText(currentCardItem.getDescrizione());
+        holder.proprietario.setText(currentCardItem.getProprietario());
     }
 
     @Override
@@ -94,6 +97,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
 
         TextView nome;
         TextView descr;
+        TextView proprietario;
         ImageView img;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -101,6 +105,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
             nome = itemView.findViewById(R.id.tvPName);
             descr = itemView.findViewById(R.id.tvPDescr);
             img = itemView.findViewById(R.id.imageViewPet);
+            proprietario =  itemView.findViewById(R.id.tvPUser);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -108,7 +113,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
                     FragmentManager fm = ((AppCompatActivity)context).getSupportFragmentManager();
                     if (fm != null) {
                         FragmentTransaction ft = fm.beginTransaction();
-                        ft.replace(R.id.frame_layout, new PetFragment(nome.getText().toString()));//TODO passare l'utente
+                        ft.replace(R.id.frame_layout, new PetFragment(nome.getText().toString(), proprietario.getText().toString()));//TODO passare l'utente
                         ft.commit();
                     }
                 }

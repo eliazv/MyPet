@@ -45,28 +45,18 @@ public class PetFragment extends Fragment {
     DatabaseReference dbRef;
 
     ImageView qrIV, petImg;
-
-    String idPet;
     String nomePet, user="e";
 
-    public PetFragment(){
+    public PetFragment(){}
 
-    }
-    public PetFragment(String idPet){
-        this.idPet=idPet;
-    }
-    //TODO da usare il seguente
     public PetFragment(String nomePet, String user){
         this.nomePet=nomePet;
         this.user=user;
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
@@ -81,18 +71,18 @@ public class PetFragment extends Fragment {
         dbRef.child("Pet").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.hasChild(idPet+" - e")) {//TODO metti user al posto di e
-                    String getDescr = snapshot.child(idPet+" - e").child("descrizione").getValue(String.class);
+                if (snapshot.hasChild(nomePet+" - "+user)) {//TODO metti user al posto di e
+                    String getDescr = snapshot.child(nomePet+" - "+user).child("descrizione").getValue(String.class);
                     TextView descr =  view.findViewById(R.id.tvDescrPetFr);
                     descr.setText(getDescr);
 
-                    String getCasa = snapshot.child(idPet+" - e").child("indirizzo").getValue(String.class);
+                    String getCasa = snapshot.child(nomePet+" - "+user).child("indirizzo").getValue(String.class);
                     TextView casa =  view.findViewById(R.id.tvCasaPetFr);
                     casa.setText(getCasa);
 
-                    String getImg = snapshot.child(idPet+" - e").child("img").getValue(String.class);
+                    String getImg = snapshot.child(nomePet+" - "+user).child("img").getValue(String.class);
                     //TODO prendere da storage e settare img
-                    
+
                 } else {
                     Toast.makeText(getContext(), "Utente non trovato.", Toast.LENGTH_SHORT).show();
                 }
@@ -123,7 +113,7 @@ public class PetFragment extends Fragment {
 
 
         TextView PetNameD =  view.findViewById(R.id.tvNamePetFr);
-        PetNameD.setText(idPet);
+        PetNameD.setText(nomePet);
 
         TextView tvUser =  view.findViewById(R.id.tvPadronePetFr);
         tvUser.setText(user);
