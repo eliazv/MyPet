@@ -33,6 +33,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -142,9 +143,11 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
         mMap.setOnMarkerClickListener(this);
 
         setMarker();
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(43.4254152,11.723322),6));//currentPet.getLatitude(), currentPet.getLongitude()), 15));
+
 
         if(currentPet != null){
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(44.1160742,12.3261798),15));//currentPet.getLatitude(), currentPet.getLongitude()), 15));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(41.2035569,8.2223571),15));//currentPet.getLatitude(), currentPet.getLongitude()), 15));
         }
         else{
 
@@ -152,11 +155,9 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
     }
 
     private void setMarker() {
-
         if (markers != null) {
             markers.clear();
         }
-
         dbRef.child("Pet").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -165,8 +166,8 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
                     Pet Pet = dataSnapshot.getValue(Pet.class);
                     //mette il marker
                     LatLng ll =  getLocationFromAddress(Pet.getIndirizzo());
-                    MarkerOptions m = new MarkerOptions().title(Pet.getNome()).position(new LatLng(ll.latitude, ll.longitude));//44.1160742,12.3261798));//Pet.getLatitude(), Pet.getLongitude()));
-
+                    MarkerOptions m = new MarkerOptions().title(Pet.getNome()+"-"+Pet.getProprietario()).position(new LatLng(ll.latitude, ll.longitude))
+                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
                     mMap.addMarker(m);
                 }
             }
@@ -188,7 +189,7 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         MarkerOptions markerOptions = new MarkerOptions().position(latLng).title("Sei qui!");
         mMap.addMarker(markerOptions);
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16.0f));
     }
 
     @Override
@@ -204,7 +205,10 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
         FragmentManager fm = getFragmentManager();
         if (fm != null) {
             FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.frame_layout, new PetFragment());
+            String nomeM = marker.getTitle();
+            //spezza in due dove c'è -
+            String[] petData = nomeM.split("-");
+            ft.replace(R.id.frame_layout, new PetFragment(petData[0],petData[1]));
             ft.commit();
         }
         return false;
