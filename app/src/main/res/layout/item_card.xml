@@ -22,16 +22,6 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="37dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="336dp"
-                android:layout_marginTop="128dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_menu_directions" />
-
-            <ImageView
                 android:id="@+id/imageViewPet"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
@@ -44,8 +34,8 @@
 
             <TextView
                 android:id="@+id/tvPDescr"
-                android:layout_width="177dp"
-                android:layout_height="62dp"
+                android:layout_width="159dp"
+                android:layout_height="69dp"
                 android:layout_marginStart="184dp"
                 android:layout_marginTop="80dp"
                 android:text="Boh Info e altro ciao ciao"
@@ -104,6 +94,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/ivPetIcon"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="305dp"
+                android:layout_marginTop="92dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_menu_directions" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

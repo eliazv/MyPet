@@ -80,6 +80,38 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         holder.nome.setText(currentCardItem.getNome());
         holder.descr.setText(currentCardItem.getDescrizione());
         holder.proprietario.setText(currentCardItem.getProprietario());
+
+        switch (currentCardItem.getSpecie()){
+            case "Cane":
+                holder.icon.setImageResource(R.mipmap.ic_dog_foreground);
+                break;
+            case "Gatto":
+                holder.icon.setImageResource(R.mipmap.ic_cat_foreground);
+                break;
+            case "Criceto":
+                holder.icon.setImageResource(R.mipmap.ic_ham_foreground);
+                break;
+            case "Cavallo":
+                holder.icon.setImageResource(R.mipmap.ic_horse_foreground);
+                break;
+            case "Uccellino":
+                holder.icon.setImageResource(R.mipmap.ic_bird_foreground);
+                break;
+            case "Coniglio":
+                holder.icon.setImageResource(R.mipmap.ic_rabbit_foreground);
+                break;
+            case "Tartaruga":
+                holder.icon.setImageResource(R.mipmap.ic_turtle_foreground);
+                break;
+            case "Maialino":
+                holder.icon.setImageResource(R.mipmap.ic_pig_foreground);
+                break;
+            case "Pesce":
+                holder.icon.setImageResource(R.mipmap.ic_fish2_foreground);
+                break;
+            default:
+                holder.icon.setImageResource(R.mipmap.ic_pig_foreground);
+        }
     }
 
     @Override
@@ -96,13 +128,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         TextView nome;
         TextView descr;
         TextView proprietario;
-        ImageView img;
+        ImageView img, icon;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             nome = itemView.findViewById(R.id.tvPName);
             descr = itemView.findViewById(R.id.tvPDescr);
             img = itemView.findViewById(R.id.imageViewPet);
+            icon = itemView.findViewById(R.id.ivPetIcon);
             proprietario =  itemView.findViewById(R.id.tvPUser);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
