@@ -18,11 +18,15 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -61,9 +65,9 @@ public class AddPetActivity extends AppCompatActivity {
     private static final int PERMISSION_GALLERY = 2;
 
     DatabaseReference dbRef;
-    EditText nome, descr, posiz, specie;
+    EditText nome, descr, posiz;
     ImageView imgPet;
-    String idPet;
+    String idPet, specieD;
 
     ActivityMainBinding binding;
     Uri imageUri ;
@@ -97,9 +101,6 @@ public class AddPetActivity extends AppCompatActivity {
         posiz = findViewById(R.id.txtPos);
         String posizText = posiz.getText().toString();
 
-        specie = findViewById(R.id.txtPos);
-        String specieText = specie.getText().toString();
-
         descr = findViewById(R.id.txtDescr);
         String descrText = descr.getText().toString();
 
@@ -112,6 +113,29 @@ public class AddPetActivity extends AppCompatActivity {
         buttAdd.setOnClickListener(view -> addPet());
 
 
+        //get the spinner from the xml.
+        Spinner dropdown = findViewById(R.id.spinner1);
+        //create a list of animalsArray for the spinner.
+        String[] animalsArray = new String[]{"Cane", "Gatto", "Criceto","Cavallo", "Pesce", "Tartaruga", "coniglio", "Uccellino", "Maialino"};
+        //create an adapter to describe how the animalsArray are displayed, adapters are used in several places in android.
+        //There are multiple variations of this, but this is the basic variant.
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, animalsArray);
+        //set the spinners adapter to the previously created one.
+        dropdown.setAdapter(adapter);
+
+        dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                specieD= (String) parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+            }
+        });
+
     }
 
     public void addPet(){
@@ -121,14 +145,11 @@ public class AddPetActivity extends AppCompatActivity {
         EditText posiz = findViewById(R.id.txtPos);
         String posizText = posiz.getText().toString();
 
-        EditText specie = findViewById(R.id.txtPos);
-        String specieText = specie.getText().toString();
-
         EditText descr = findViewById(R.id.txtDescr);
         String descrText = descr.getText().toString();
 
 
-        if(posizText.isEmpty() || nomeText.isEmpty() || specieText.isEmpty()  || descrText.isEmpty()){
+        if(posizText.isEmpty() || nomeText.isEmpty() || descrText.isEmpty()){
             Toast.makeText(getBaseContext(), "Compila tutti i campi.", Toast.LENGTH_SHORT).show();
         } else {
             dbRef.child("Pet").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -140,7 +161,7 @@ public class AddPetActivity extends AppCompatActivity {
                     }
                     else{
                         dbRef.child("Pet").child(idPet).child("nome").setValue(nomeText);
-                        dbRef.child("Pet").child(idPet).child("specie").setValue(specieText);
+                        dbRef.child("Pet").child(idPet).child("specie").setValue(specieD);
                         dbRef.child("Pet").child(idPet).child("descrizione").setValue(descrText);
                         dbRef.child("Pet").child(idPet).child("indirizzo").setValue(posizText);
                         dbRef.child("Pet").child(idPet).child("proprietario").setValue(loggedUser);
