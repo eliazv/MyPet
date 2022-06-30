@@ -62,11 +62,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
 
         //---Per IMG
         storage = FirebaseStorage.getInstance();
-        //storageReference = FirebaseStorage.getInstance().getReferenceFromUrl("gs://mypet---android-app.appspot.com/");
         try {
-            storageReference = storage.getReference().child("image/" + "nuovoe" + ".jpeg");//currentCardItem.getNome()+loggedUser
-            //storageReference = storageReference.child("image/" + currentCardItem.getNome()+loggedUser + ".jpeg");
-            File file = File.createTempFile(LoginActivity.loggedUser, "jpeg");//??
+            storageReference = storage.getReference().child(currentCardItem.getNome()+" - "+currentCardItem.getProprietario());//currentCardItem.getNome()+loggedUser
+            File file = File.createTempFile(currentCardItem.getNome()+" - "+currentCardItem.getProprietario(), "jpeg");//??
             storageReference.getFile(file).addOnSuccessListener(taskSnapshot -> {
                 Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
                 holder.img.setImageBitmap(bitmap);

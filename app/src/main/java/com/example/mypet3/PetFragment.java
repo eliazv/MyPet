@@ -59,7 +59,7 @@ public class PetFragment extends Fragment {
 
     public PetFragment(String nomePet, String user){
         this.nomePet=nomePet;
-        this.user=user;
+        this.user=user;//TODO è giusto o è solo quello loggato??
     }
 
     @Override
@@ -84,6 +84,7 @@ public class PetFragment extends Fragment {
                     descr =  view.findViewById(R.id.tvDescrPetFr);
                     descr.setText(getDescr);
 
+                    //----Specie
                     getSpecie = snapshot.child(nomePet+" - "+user).child("specie").getValue(String.class);
                     specie =  view.findViewById(R.id.ivSpecieIcon);
                     switch (getSpecie){
@@ -119,7 +120,7 @@ public class PetFragment extends Fragment {
 
                     }
 
-
+                    //----indirizzo
                     getCasa = snapshot.child(nomePet+" - "+user).child("indirizzo").getValue(String.class);
                     casa =  view.findViewById(R.id.tvCasaPetFr);
                     casa.setText(getCasa);
@@ -137,8 +138,20 @@ public class PetFragment extends Fragment {
                         }
                     });
 
+                    //----IMG
                     getImg = snapshot.child(nomePet+" - "+user).child("img").getValue(String.class);
-                    //TODO prendere da storage e settare img
+                    storage = FirebaseStorage.getInstance();
+                    petImg = view.findViewById(R.id.imgPetProfile);
+                    try {
+                        storageReference = storage.getReference().child(getImg);
+                        File file = File.createTempFile(nomePet+" - "+user, "jpeg");
+                        storageReference.getFile(file).addOnSuccessListener(taskSnapshot -> {
+                            Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+                            petImg.setImageBitmap(bitmap);
+                        });
+                    } catch (Exception e){
+                        e.getMessage();
+                    }
 
                 } else {
                     Toast.makeText(getContext(), "Utente non trovato.", Toast.LENGTH_SHORT).show();
