@@ -51,9 +51,9 @@ public class PetFragment extends Fragment {
     FirebaseStorage storage;
     DatabaseReference dbRef;
 
-    ImageView qrIV, petImg;
+    ImageView qrIV, petImg, specie;
     TextView descr, casa, telefono;
-    String nomePet, user, getCasa, getDescr, getImg, getTel, qrText;
+    String nomePet, user, getCasa, getDescr, getSpecie, getImg, getTel, qrText;
 
     public PetFragment(){}
 
@@ -83,6 +83,42 @@ public class PetFragment extends Fragment {
                     getDescr = snapshot.child(nomePet+" - "+user).child("descrizione").getValue(String.class);
                     descr =  view.findViewById(R.id.tvDescrPetFr);
                     descr.setText(getDescr);
+
+                    getSpecie = snapshot.child(nomePet+" - "+user).child("specie").getValue(String.class);
+                    specie =  view.findViewById(R.id.ivSpecieIcon);
+                    switch (getSpecie){
+                        case "Cane":
+                            specie.setImageResource(R.mipmap.ic_dog_foreground);
+                            break;
+                        case "Gatto":
+                            specie.setImageResource(R.mipmap.ic_cat_foreground);
+                            break;
+                        case "Criceto":
+                            specie.setImageResource(R.mipmap.ic_ham_foreground);
+                            break;
+                        case "Cavallo":
+                            specie.setImageResource(R.mipmap.ic_horse_foreground);
+                            break;
+                        case "Uccellino":
+                            specie.setImageResource(R.mipmap.ic_bird_foreground);
+                            break;
+                        case "Coniglio":
+                            specie.setImageResource(R.mipmap.ic_rabbit_foreground);
+                            break;
+                        case "Tartaruga":
+                            specie.setImageResource(R.mipmap.ic_turtle_foreground);
+                            break;
+                        case "Maialino":
+                            specie.setImageResource(R.mipmap.ic_pig_foreground);
+                            break;
+                        case "Pesce":
+                            specie.setImageResource(R.mipmap.ic_fish2_foreground);
+                            break;
+                        default:
+                            specie.setImageResource(R.mipmap.ic_pig_foreground);
+
+                    }
+
 
                     getCasa = snapshot.child(nomePet+" - "+user).child("indirizzo").getValue(String.class);
                     casa =  view.findViewById(R.id.tvCasaPetFr);

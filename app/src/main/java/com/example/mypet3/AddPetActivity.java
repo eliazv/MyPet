@@ -116,7 +116,7 @@ public class AddPetActivity extends AppCompatActivity {
         //get the spinner from the xml.
         Spinner dropdown = findViewById(R.id.spinner1);
         //create a list of animalsArray for the spinner.
-        String[] animalsArray = new String[]{"Cane", "Gatto", "Criceto","Cavallo", "Pesce", "Tartaruga", "coniglio", "Uccellino", "Maialino"};
+        String[] animalsArray = new String[]{"Cane", "Gatto", "Criceto","Cavallo", "Pesce", "Tartaruga", "Coniglio", "Uccellino", "Maialino"};
         //create an adapter to describe how the animalsArray are displayed, adapters are used in several places in android.
         //There are multiple variations of this, but this is the basic variant.
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, animalsArray);

@@ -52,7 +52,7 @@
                 <!--android:background="@drawable/rounded_corner"-->
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/ivSpecieIcon"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginStart="270dp"
