@@ -30,7 +30,7 @@
             android:layout_marginTop="530dp"
             android:clickable="true"
             android:src="@android:drawable/ic_input_add"
-            app:backgroundTint="#DF7861"
+            app:backgroundTint="#ffe0b2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
