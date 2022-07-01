@@ -20,12 +20,16 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvSpecie"
-                android:layout_width="380dp"
+                android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                app:cardCornerRadius="18dp">
+                app:cardCornerRadius="18dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -66,19 +70,11 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/txtError"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="0dp"
-                android:layout_marginTop="60dp"
-                android:textColor="#DF7861"
-                android:textSize="22sp"/>
-            <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="90dp"
                 android:text="Username"
                 android:textStyle="bold"
                 android:textColor="#DF7861"
@@ -86,9 +82,10 @@
 
             <EditText
                 android:id="@+id/tvUserLog"
-                android:layout_width="332dp"
+                android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
                 android:ems="10"
                 android:textColor="#ECB390"
                 android:inputType="text"
@@ -109,9 +106,10 @@
 
             <EditText
                 android:id="@+id/tvPassLog"
-                android:layout_width="332dp"
+                android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
                 android:ems="10"
                 android:inputType="textPassword"
                 android:backgroundTint="#00695c"
@@ -123,7 +121,8 @@
                 android:id="@+id/btnLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="258dp"
+                android:layout_gravity="right"
+                android:layout_marginEnd="30dp"
                 android:layout_marginBottom="30dp"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="#DF7861"
@@ -150,20 +149,21 @@
                     android:layout_marginTop="8dp"
                     android:text="Non hai un account?"
                     android:textColor="#94B49F"
-                    android:textSize="22sp"
+                    android:textSize="26sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="MissingConstraints" />
 
                 <Button
                     android:id="@+id/btnRegist"
-                    android:layout_width="163dp"
-                    android:layout_height="53dp"
-                    android:layout_marginEnd="22dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginEnd="16dp"
                     android:backgroundTint="#00695c"
                     android:text="Registrati"
                     android:textColor="#FFFFFF"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="MissingConstraints" />
