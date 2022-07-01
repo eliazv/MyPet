@@ -63,8 +63,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         //---Per IMG
         storage = FirebaseStorage.getInstance();
         try {
-            storageReference = storage.getReference().child(currentCardItem.getNome()+" - "+currentCardItem.getProprietario());//currentCardItem.getNome()+loggedUser
-            File file = File.createTempFile(currentCardItem.getNome()+" - "+currentCardItem.getProprietario(), "jpeg");//??
+            storageReference = storage.getReference().child(currentCardItem.getImg());//currentCardItem.getNome()+loggedUser
+            File file = File.createTempFile(currentCardItem.getNome()+currentCardItem.getProprietario(), "jpeg");//??
             storageReference.getFile(file).addOnSuccessListener(taskSnapshot -> {
                 Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
                 holder.img.setImageBitmap(bitmap);
@@ -73,9 +73,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
             e.getMessage();
         }
 
-        //Drawable drawable = AppCompatResources.getDrawable(activity, activity.getResources()
-                //.getIdentifier(imagePath, "drawable", activity.getPackageName()));
-        //holder.img.setImageDrawable(drawable);
+        /*
+        String imagePath = currentCardItem.getImg();
+        Drawable drawable = AppCompatResources.getDrawable(activity, activity.getResources()
+                .getIdentifier(imagePath, "drawable", activity.getPackageName()));
+        holder.img.setImageDrawable(drawable);*/
 
         holder.nome.setText(currentCardItem.getNome());
         holder.descr.setText(currentCardItem.getDescrizione());
