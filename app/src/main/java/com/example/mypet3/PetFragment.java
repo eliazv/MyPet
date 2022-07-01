@@ -4,9 +4,11 @@ import static com.example.mypet3.LoginActivity.loggedUser;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -162,7 +164,7 @@ public class PetFragment extends Fragment {
 
             }
         });
-
+        //---Tel
         dbRef.child("User").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -170,6 +172,15 @@ public class PetFragment extends Fragment {
                     getTel = snapshot.child(user).child("telefono").getValue(String.class);
                     telefono =  view.findViewById(R.id.tvTelPetFr);
                     telefono.setText(getTel);
+                    telefono.setPaintFlags(casa.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                    telefono.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent callIntent = new Intent(Intent.ACTION_CALL);
+                            callIntent.setData(Uri.parse("tel:"+getTel));
+                            startActivity(callIntent);
+                        }
+                    });
 
                     //-----QRCode
                     qrIV = view.findViewById(R.id.qrimg);
