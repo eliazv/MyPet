@@ -12,8 +12,8 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="408dp"
-            android:layout_height="550dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -70,24 +70,24 @@
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="310dp"
-                android:layout_height="34dp"
+                android:layout_height="39dp"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="44dp"
                 android:text="@string/padrone"
                 android:textStyle="bold"
                 android:textColor="#DF7861"
-                android:textSize="28sp" />
+                android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/tvPadronePetFr"
                 android:layout_width="310dp"
-                android:layout_height="31dp"
+                android:layout_height="36dp"
                 android:layout_marginStart="44dp"
                 android:layout_marginEnd="44dp"
                 android:text="Elia Zavatta "
                 android:textColor="#ECB390"
-                android:textSize="24sp" />
+                android:textSize="28sp" />
 
 
 
@@ -97,84 +97,84 @@
             <TextView
                 android:id="@+id/textView144"
                 android:layout_width="310dp"
-                android:layout_height="36dp"
+                android:layout_height="39dp"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="44dp"
                 android:text="@string/telefono"
                 android:textStyle="bold"
                 android:textColor="#DF7861"
-                android:textSize="28sp" />
+                android:textSize="34sp" />
 
 
             <TextView
                 android:id="@+id/tvTelPetFr"
                 android:layout_width="266dp"
-                android:layout_height="37dp"
+                android:layout_height="36dp"
                 android:layout_marginStart="44dp"
                 android:layout_marginEnd="44dp"
                 android:text="3938932793"
                 android:textColor="#ECB390"
-                android:textSize="24sp" />
+                android:textSize="28sp" />
 
 
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="310dp"
-                android:layout_height="36dp"
+                android:layout_height="39dp"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="44dp"
                 android:textStyle="bold"
                 android:text="@string/casa"
                 android:textColor="#DF7861"
-                android:textSize="28sp" />
+                android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/tvCasaPetFr"
                 android:layout_width="310dp"
-                android:layout_height="85dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="44dp"
                 android:layout_marginEnd="44dp"
-                android:text="Largo Marino Maestri 68, Gambettola FC"
+                android:text="Largo Marino Maestri 68, Gambettola FC, altro altro altro altro"
                 android:textColor="#ECB390"
-                android:textSize="24sp" />
+                android:textSize="28sp" />
 
 
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="310dp"
-                android:layout_height="34dp"
+                android:layout_height="39dp"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="44dp"
                 android:textStyle="bold"
                 android:text="@string/descrizione"
                 android:textColor="#DF7861"
-                android:textSize="28sp" />
+                android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/tvDescrPetFr"
                 android:layout_width="310dp"
-                android:layout_height="113dp"
+                android:layout_height="135dp"
                 android:layout_marginStart="44dp"
                 android:layout_marginEnd="44dp"
                 android:text="@string/sono_un_cane_bellissimo_mi_piace_passeggiare_in_giro_se_mi_trovate_chiamate_il_mio_padrone"
                 android:textColor="#ECB390"
-                android:textSize="24sp" />
+                android:textSize="28sp" />
 
             <TextView
                 android:id="@+id/textVieQR"
                 android:layout_width="310dp"
-                android:layout_height="34dp"
+                android:layout_height="39dp"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="44dp"
                 android:textStyle="bold"
                 android:text="@string/codice_qr"
                 android:textColor="#DF7861"
-                android:textSize="28sp" />
+                android:textSize="34sp" />
 
             <ImageView
                 android:id="@+id/qrimg"

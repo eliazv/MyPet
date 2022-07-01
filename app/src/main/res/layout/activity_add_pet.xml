@@ -74,6 +74,7 @@
             android:inputType="textPersonName"
             android:textColor="#ECB390"
             android:textSize="28sp"
+            android:textColorHint="#00695c"
             android:backgroundTint="#00695c"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -88,6 +89,7 @@
             android:text="Specie"
             android:textStyle="bold"
             android:textColor="#DF7861"
+
             android:textSize="32sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -123,6 +125,8 @@
             android:layout_marginStart="32dp"
             android:ems="10"
             android:hint="via Rossi 67, Gambettola FC"
+            android:textColorHint="#00695c"
+            android:backgroundTint="#00695c"
             android:inputType="text|textPostalAddress"
             android:textColor="#ECB390"
             android:textSize="28sp"
@@ -150,6 +154,8 @@
             android:layout_height="53dp"
             android:layout_marginStart="32dp"
             android:ems="10"
+            android:textColorHint="#00695c"
+            android:backgroundTint="#00695c"
             android:hint="Sono un cane bello e mi piace uscire."
             android:inputType="text"
             android:textColor="#ECB390"

@@ -76,8 +76,9 @@
                 android:layout_height="48dp"
                 android:layout_marginStart="32dp"
                 android:ems="10"
-                android:textColor="@color/quantum_yellowA400"
+                android:textColor="#ECB390"
                 android:inputType="text"
+                android:backgroundTint="#00695c"
                 android:textSize="24sp" />
             <!--VisiblePassword|textNoSuggestions-->
 
@@ -99,8 +100,9 @@
                 android:layout_marginStart="32dp"
                 android:ems="10"
                 android:inputType="textPassword"
+                android:backgroundTint="#00695c"
                 android:text=""
-                android:textColor="@color/quantum_yellowA400"
+                android:textColor="#ECB390"
                 android:textSize="24sp" />
 
             <Button
