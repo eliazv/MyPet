@@ -9,6 +9,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/google_map"
+        android:layout_marginTop="68dp"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,12 +18,13 @@
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/sv_map"
+        android:layout_marginTop="78dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="#EFEFEF"
-        android:elevation="5dp" />
+        android:elevation="5dp"
+        app:cardCornerRadius="18dp"/>
 </RelativeLayout>
