@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FCF8E8"
-    android:backgroundTint="#FCF8E8">
+    android:background="#00251a"
+    android:backgroundTint="#00251a">
 
 
     <ScrollView
@@ -30,7 +30,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="Aggiungi Pet"
-                android:textColor="#94B49F"
+                android:textColor="#FFFFFF"
                 android:textSize="42sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
-                app:tint="#000000" />
+                app:tint="#FFFFFF" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -57,8 +57,9 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="20dp"
             android:text="Nome"
-            android:textColor="#ECB390"
-            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#DF7861"
+            android:textSize="32sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,12 +67,14 @@
         <EditText
             android:id="@+id/txtNome"
             android:layout_width="328dp"
-            android:layout_height="47dp"
+            android:layout_height="53dp"
             android:layout_marginStart="32dp"
             android:ems="10"
             android:hint="Fido"
             android:inputType="textPersonName"
-            android:textSize="24sp"
+            android:textColor="#ECB390"
+            android:textSize="28sp"
+            android:backgroundTint="#00695c"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -83,8 +86,9 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="20dp"
             android:text="Specie"
-            android:textColor="#ECB390"
-            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#DF7861"
+            android:textSize="32sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -93,6 +97,8 @@
             android:layout_width="150dp"
             android:layout_height="48dp"
             android:layout_marginStart="32dp"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
             android:layout_marginTop="5dp"
             android:background="@drawable/custom_popup_background"
             android:spinnerMode="dropdown"/>
@@ -104,20 +110,22 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="20dp"
             android:text="Residenza"
-            android:textColor="#ECB390"
-            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#DF7861"
+            android:textSize="32sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/txtPos"
             android:layout_width="336dp"
-            android:layout_height="46dp"
+            android:layout_height="53dp"
             android:layout_marginStart="32dp"
             android:ems="10"
             android:hint="via Rossi 67, Gambettola FC"
             android:inputType="text|textPostalAddress"
-            android:textSize="24sp"
+            android:textColor="#ECB390"
+            android:textSize="28sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -129,8 +137,9 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="20dp"
             android:text="Descrizione"
-            android:textColor="#ECB390"
-            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#DF7861"
+            android:textSize="32sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -138,12 +147,13 @@
         <EditText
             android:id="@+id/txtDescr"
             android:layout_width="332dp"
-            android:layout_height="48dp"
+            android:layout_height="53dp"
             android:layout_marginStart="32dp"
             android:ems="10"
             android:hint="Sono un cane bello e mi piace uscire."
             android:inputType="text"
-            android:textSize="24sp"
+            android:textColor="#ECB390"
+            android:textSize="28sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -154,8 +164,9 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="20dp"
             android:text="Immagine"
-            android:textColor="#ECB390"
-            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#DF7861"
+            android:textSize="32sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -170,7 +181,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="34dp"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="#94B49F"
+                android:backgroundTint="#00695c"
                 android:text="scegli"
                 android:textColor="#FFFFFF"
                 android:textSize="21sp"

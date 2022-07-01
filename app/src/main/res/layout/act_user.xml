@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FCF8E8"
-    android:backgroundTint="#FCF8E8">
+    android:background="#00251a"
+    android:backgroundTint="#00251a">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="19dp"
                     android:backgroundTint="#00FFFFFF"
-                    android:tint="#000000"
+                    android:tint="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
@@ -40,7 +40,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:text="Profilo"
-                    android:textColor="#94B49F"
+                    android:textColor="#FFFFFF"
                     android:textSize="42sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -55,8 +55,9 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="20dp"
                 android:text="Username"
-                android:textColor="#ECB390"
-                android:textSize="26sp" />
+                android:textStyle="bold"
+                android:textColor="#DF7861"
+                android:textSize="32sp" />
 
             <TextView
                 android:id="@+id/tvUsername"
@@ -65,8 +66,8 @@
                 android:layout_marginStart="32dp"
                 android:ems="10"
                 android:text="Mario"
-                android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:textColor="#ECB390"
+                android:textSize="28sp" />
 
 
             <TextView
@@ -76,8 +77,9 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="20dp"
                 android:text="Email"
-                android:textColor="#ECB390"
-                android:textSize="26sp" />
+                android:textStyle="bold"
+                android:textColor="#DF7861"
+                android:textSize="32sp" />
 
             <TextView
                 android:id="@+id/tvEmail"
@@ -85,9 +87,9 @@
                 android:layout_height="48dp"
                 android:layout_marginStart="32dp"
                 android:ems="10"
-                android:textColor="@color/black"
+                android:textColor="#ECB390"
                 android:text="gigipara@gmail.com"
-                android:textSize="24sp" />
+                android:textSize="28sp" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -96,8 +98,9 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="20dp"
                 android:text="Telefono"
-                android:textColor="#ECB390"
-                android:textSize="26sp" />
+                android:textStyle="bold"
+                android:textColor="#DF7861"
+                android:textSize="32sp" />
 
             <TextView
                 android:id="@+id/tvTel"
@@ -106,8 +109,8 @@
                 android:layout_marginStart="32dp"
                 android:ems="10"
                 android:text="3338723461"
-                android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:textColor="#ECB390"
+                android:textSize="28sp" />
 
 
 

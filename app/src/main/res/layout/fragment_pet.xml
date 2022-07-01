@@ -41,7 +41,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="24dp"
-                    android:background="#94B49F"
+                    android:background="#00695c"
                     android:text="Pluto"
                     android:textAlignment="center"
                     android:textColor="#FCF8E8"

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FCF8E8"
-    android:backgroundTint="#FCF8E8">
+    android:background="#00251a"
+    android:backgroundTint="#00251a">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="19dp"
                     android:backgroundTint="#00FFFFFF"
-                    android:tint="#000000"
+                    android:tint="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
@@ -42,7 +42,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:text="Login"
-                    android:textColor="#94B49F"
+                    android:textColor="#FFFFFF"
                     android:textSize="42sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -66,8 +66,9 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="20dp"
                 android:text="Username"
-                android:textColor="#ECB390"
-                android:textSize="26sp" />
+                android:textStyle="bold"
+                android:textColor="#DF7861"
+                android:textSize="38sp" />
 
             <EditText
                 android:id="@+id/tvUserLog"
@@ -75,6 +76,7 @@
                 android:layout_height="48dp"
                 android:layout_marginStart="32dp"
                 android:ems="10"
+                android:textColor="@color/quantum_yellowA400"
                 android:inputType="text"
                 android:textSize="24sp" />
             <!--VisiblePassword|textNoSuggestions-->
@@ -86,8 +88,9 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="20dp"
                 android:text="Password"
-                android:textColor="#ECB390"
-                android:textSize="26sp" />
+                android:textStyle="bold"
+                android:textColor="#DF7861"
+                android:textSize="38sp" />
 
             <EditText
                 android:id="@+id/tvPassLog"
@@ -97,6 +100,7 @@
                 android:ems="10"
                 android:inputType="textPassword"
                 android:text=""
+                android:textColor="@color/quantum_yellowA400"
                 android:textSize="24sp" />
 
             <Button
@@ -114,7 +118,7 @@
             <View
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:background="?android:attr/listDivider" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -126,8 +130,8 @@
                     android:id="@+id/lblOP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
                     android:text="Non hai un account?"
                     android:textColor="#94B49F"
                     android:textSize="22sp"
@@ -137,13 +141,13 @@
 
                 <Button
                     android:id="@+id/btnRegist"
-                    android:layout_width="132dp"
-                    android:layout_height="42dp"
-                    android:layout_marginEnd="31dp"
-                    android:backgroundTint="#94B49F"
+                    android:layout_width="163dp"
+                    android:layout_height="53dp"
+                    android:layout_marginEnd="22dp"
+                    android:backgroundTint="#00695c"
                     android:text="Registrati"
                     android:textColor="#FFFFFF"
-                    android:textSize="15sp"
+                    android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="MissingConstraints" />
