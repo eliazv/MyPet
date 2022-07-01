@@ -89,7 +89,6 @@
             android:text="Specie"
             android:textStyle="bold"
             android:textColor="#DF7861"
-
             android:textSize="32sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -183,7 +182,7 @@
             android:layout_height="match_parent">
             <Button
                 android:id="@+id/btnAddPetImage"
-                android:layout_width="113dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="34dp"
                 android:layout_marginTop="10dp"
@@ -196,8 +195,8 @@
 
             <ImageView
                 android:id="@+id/imgPetAdd"
-                android:layout_width="207dp"
-                android:layout_height="47dp"
+                android:layout_width="210dp"
+                android:layout_height="75dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="4dp"
                 app:layout_constraintStart_toEndOf="@+id/btnAddPetImage"
