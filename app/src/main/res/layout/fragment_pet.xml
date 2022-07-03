@@ -26,7 +26,7 @@
 
                 <ImageView
                     android:id="@+id/imgPetProfile"
-                    android:layout_width="221dp"
+                    android:layout_width="match_parent"
                     android:layout_height="230dp"
                     android:layout_marginStart="100dp"
                     android:layout_marginTop="90dp"
@@ -73,7 +73,7 @@
                         <TextView
                             android:id="@+id/tvNamePetFr"
                             android:layout_width="match_parent"
-                            android:layout_height="53dp"
+                            android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Pluto"
                             android:textColor="#FFFFFF"
@@ -92,8 +92,8 @@
 
             <TextView
                 android:id="@+id/textView12"
-                android:layout_width="310dp"
-                android:layout_height="39dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="44dp"
@@ -104,8 +104,8 @@
 
             <TextView
                 android:id="@+id/tvPadronePetFr"
-                android:layout_width="310dp"
-                android:layout_height="36dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="44dp"
                 android:layout_marginEnd="44dp"
                 android:text="Elia Zavatta "
@@ -116,8 +116,8 @@
 
             <TextView
                 android:id="@+id/textView144"
-                android:layout_width="310dp"
-                android:layout_height="39dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="44dp"
@@ -129,8 +129,8 @@
 
             <TextView
                 android:id="@+id/tvTelPetFr"
-                android:layout_width="266dp"
-                android:layout_height="36dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="44dp"
                 android:layout_marginEnd="44dp"
                 android:text="3938932793"
@@ -141,8 +141,8 @@
 
             <TextView
                 android:id="@+id/textView11"
-                android:layout_width="310dp"
-                android:layout_height="39dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="44dp"
@@ -153,8 +153,8 @@
 
             <TextView
                 android:id="@+id/tvCasaPetFr"
-                android:layout_width="310dp"
-                android:layout_height="100dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="44dp"
                 android:layout_marginEnd="44dp"
                 android:text="Largo Marino Maestri 68, Gambettola FC, altro altro altro altro"
@@ -164,8 +164,8 @@
 
             <TextView
                 android:id="@+id/textView9"
-                android:layout_width="310dp"
-                android:layout_height="39dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="44dp"
@@ -176,8 +176,8 @@
 
             <TextView
                 android:id="@+id/tvDescrPetFr"
-                android:layout_width="310dp"
-                android:layout_height="135dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="44dp"
                 android:layout_marginEnd="44dp"
                 android:text="@string/sono_un_cane_bellissimo_mi_piace_passeggiare_in_giro_se_mi_trovate_chiamate_il_mio_padrone"
@@ -186,8 +186,8 @@
 
             <TextView
                 android:id="@+id/textVieQR"
-                android:layout_width="310dp"
-                android:layout_height="39dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="44dp"

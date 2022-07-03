@@ -51,7 +51,7 @@
                         <TextView
                             android:id="@+id/textView7"
                             android:layout_width="match_parent"
-                            android:layout_height="53dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginStart="66dp"
                             android:layout_marginTop="10dp"
                             android:text="Profilo"
@@ -84,7 +84,7 @@
             <TextView
                 android:id="@+id/tvUsername"
                 android:layout_width="match_parent"
-                android:layout_height="53dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -112,7 +112,7 @@
             <TextView
                 android:id="@+id/tvEmail"
                 android:layout_width="match_parent"
-                android:layout_height="53dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
