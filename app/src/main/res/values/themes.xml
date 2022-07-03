@@ -13,4 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">#00695c</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="ShapeAppearanceOverlay.App.CornerSize10" parent="">
+        <item name="cornerSize">10dp</item>
+    </style>
 </resources>

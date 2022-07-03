@@ -155,7 +155,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
 
     }
 
-
     //----Search menu----
     public Filter getFilter() {
         return Searched_Filter;

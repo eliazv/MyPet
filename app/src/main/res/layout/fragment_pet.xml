@@ -24,9 +24,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imgPetProfile"
-                    android:layout_width="match_parent"
+                    android:layout_width="300dp"
                     android:layout_height="230dp"
                     android:layout_marginStart="100dp"
                     android:layout_marginTop="90dp"
@@ -35,6 +35,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <ImageView

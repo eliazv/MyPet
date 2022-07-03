@@ -19,6 +19,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.example.mypet3.databinding.ActivityMainBinding;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     FirebaseAuth mAuth;
+    private long pressedTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,6 +133,23 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    @Override
+    public void onBackPressed() {
+
+        if (pressedTime + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            finish();
+        } else {
+            //non va perche c'è lo start activity
+            if(getApplicationContext()==this){
+                Toast.makeText(getBaseContext(), "Premi ancora per uscire.", Toast.LENGTH_SHORT).show();
+            }
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+
+        }
+        pressedTime = System.currentTimeMillis();
+    }
 
 
 }
