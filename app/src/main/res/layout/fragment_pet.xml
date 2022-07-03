@@ -202,13 +202,43 @@
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="100dp"
                 android:layout_gravity="center"
                 tools:src="@tools:sample/backgrounds/scenic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp">
+
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="57dp"
+                    android:layout_height="68dp"
+                    android:layout_marginStart="4dp"
+                    android:src="@mipmap/ic_hint_foreground"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvQRinfo"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:text="Consiglio: puoi stampare questo QR Code e incollarlo sulla medaglietta del tuo pet!"
+                    android:textColor="#ECB390"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

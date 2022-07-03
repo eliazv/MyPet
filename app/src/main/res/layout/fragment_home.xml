@@ -7,6 +7,29 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00695c"
+        app:tabTextColor="#FFFFFF"
+        app:tabSelectedTextColor="#FFFFFF"
+        app:tabIndicatorColor="#FFFFFF"
+        android:layout_marginTop="68dp">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabPets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pets" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabParks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parks" />
+
+    </com.google.android.material.tabs.TabLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -16,7 +39,7 @@
             android:id="@+id/petRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="116dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
