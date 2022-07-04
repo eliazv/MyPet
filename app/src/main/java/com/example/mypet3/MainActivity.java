@@ -42,13 +42,13 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new HomeFragment());
+        replaceFragment(new TabHomeFragment());
 
         binding.bottomNavigationView.setOnItemSelectedListener( item -> {
 
             switch (item.getItemId()){
                 case R.id.home:
-                    replaceFragment(new HomeFragment());
+                    replaceFragment(new TabHomeFragment());
                     break;
                 case R.id.map:
                     replaceFragment(new MapFragment());

@@ -91,6 +91,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:ems="10"
+            android:maxLength= "20"
             android:hint="Fido"
             android:inputType="textPersonName"
             android:textColor="#ECB390"
