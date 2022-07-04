@@ -1,13 +1,9 @@
 package com.example.mypet3;
 
-import static com.example.mypet3.LoginActivity.loggedUser;
-
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +13,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.content.res.AppCompatResources;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -31,7 +25,7 @@ import java.util.ArrayList;
 
 import DBClass.Pet;
 
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
+public class PetAdapter extends RecyclerView.Adapter<PetAdapter.MyViewHolder> {
 
     ArrayList<Pet> list;
     ArrayList<Pet> fullList;
@@ -41,7 +35,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
     private FirebaseStorage storage;
     private StorageReference storageReference;
 
-    public HomeAdapter( ArrayList<Pet> list, Activity activity) {
+    public PetAdapter(ArrayList<Pet> list, Activity activity) {
 
         this.list = list;
         this.fullList = new ArrayList<>(list);

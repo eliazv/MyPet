@@ -33,7 +33,7 @@
             android:name=".RegistrActivity"
             android:exported="false" />
         <activity
-            android:name=".AddPetActivity"
+            android:name=".PetAddActivity"
             android:exported="false" />
         <activity
             android:name=".UserActivity"

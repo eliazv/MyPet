@@ -8,10 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ParksFragment extends Fragment {
+public class ParkTabFragment extends Fragment {
 
-    public ParksFragment() {
-        // Required empty public constructor
+    public ParkTabFragment() {
     }
 
     @Override

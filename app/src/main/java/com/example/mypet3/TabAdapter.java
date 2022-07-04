@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import java.util.ArrayList;
-
 public class TabAdapter extends FragmentPagerAdapter {
 
     private Context myContext;
@@ -24,10 +22,10 @@ public class TabAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                HomeFragment homeFragment = new HomeFragment();
+                PetTabFragment homeFragment = new PetTabFragment();
                 return homeFragment;
             case 1:
-                ParksFragment parksFragment = new ParksFragment();
+                ParkTabFragment parksFragment = new ParkTabFragment();
                 return parksFragment;
             default:
                 return null;

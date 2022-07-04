@@ -27,11 +27,11 @@ import java.util.ArrayList;
 
 import DBClass.Pet;
 
-public class HomeFragment extends Fragment {
+public class PetTabFragment extends Fragment {
 
     RecyclerView recyclerView;
     DatabaseReference dbRef;
-    HomeAdapter myAdapter;
+    PetAdapter myAdapter;
     ArrayList<Pet> petList;
 
 
@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     //Da HomeFragment a AddPetActivity
-                    startActivity( new Intent(getActivity().getApplicationContext(), AddPetActivity.class));
+                    startActivity( new Intent(getActivity().getApplicationContext(), PetAddActivity.class));
                 }
             });
         }
@@ -57,7 +57,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
         petList = new ArrayList<>();
-        myAdapter = new HomeAdapter(petList,getActivity());
+        myAdapter = new PetAdapter(petList,getActivity());
         recyclerView.setAdapter(myAdapter);
 
 
