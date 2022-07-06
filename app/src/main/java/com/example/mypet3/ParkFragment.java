@@ -76,7 +76,7 @@ public class ParkFragment extends Fragment {
 
 
         //-----Set Data
-        dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://myPark---android-app-default-rtdb.firebaseio.com/");
+        dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mypet---android-app-default-rtdb.firebaseio.com/");
         dbRef.child("Park").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

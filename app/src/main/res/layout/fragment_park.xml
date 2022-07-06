@@ -175,7 +175,7 @@
                     android:layout_width="330dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="60dp"
-                    android:text="Consiglio: puoi stampare questo QR Code e incollarlo sulla medaglietta del tuo pet!"
+                    android:text="Consiglio: puoi stampare questo QR Code ed esporlo al tuo parco!"
                     android:textColor="#ECB390"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
