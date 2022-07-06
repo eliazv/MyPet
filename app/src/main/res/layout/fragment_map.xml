@@ -16,6 +16,17 @@
         map:uiZoomControls="true"
         />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.appcompat.widget.SearchView
         android:id="@+id/sv_map"
         android:layout_marginTop="78dp"
@@ -26,5 +37,7 @@
         android:layout_marginBottom="10dp"
         android:background="#EFEFEF"
         android:elevation="5dp"
-        app:cardCornerRadius="18dp"/>
+        app:cardCornerRadius="18dp">
+
+    </androidx.appcompat.widget.SearchView>
 </RelativeLayout>

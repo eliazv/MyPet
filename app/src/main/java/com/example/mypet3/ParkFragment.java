@@ -107,7 +107,7 @@ public class ParkFragment extends Fragment {
 
                     //-----QRCode
                     qrIV = view.findViewById(R.id.qrimg);
-                    qrText ="Nome: "+nomePark+"; Indirizzo: "+ getCasa +"; Descrizione: "+ getDescr+".";
+                    qrText ="Nome Parco: "+nomePark+"; Indirizzo: "+ getCasa +"; Descrizione: "+ getDescr+".";
                     MultiFormatWriter mWriter = new MultiFormatWriter();
 
                     try {

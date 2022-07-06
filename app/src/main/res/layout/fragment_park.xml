@@ -172,8 +172,8 @@
 
                 <TextView
                     android:id="@+id/tvQRinfo"
-                    android:layout_width="330dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="60dp"
                     android:text="Consiglio: puoi stampare questo QR Code ed esporlo al tuo parco!"
                     android:textColor="#ECB390"

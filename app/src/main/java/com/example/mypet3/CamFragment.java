@@ -42,21 +42,36 @@ public class CamFragment extends Fragment {
                         public void run() {
                             //Toast.makeText(activity, result.getText(), Toast.LENGTH_SHORT).show();
 
-                            //splitta...
-                            String[] separated = result.getText().split(";");
-                            //da dopo Nome: a prima di ;
-                            String nomePet=separated[0].substring(6);
-                            //da dopo Proprietario: a prima di ;
-                            String nomeUser=separated[1].substring(15);
-
-                            //reinderizza a petFr
-                            Context context = view.getContext();
-                            FragmentManager fm = ((AppCompatActivity)context).getSupportFragmentManager();
-                            if (fm != null) {
-                                FragmentTransaction ft = fm.beginTransaction();
-                                ft.replace(R.id.frame_layout, new PetFragment(nomePet, nomeUser));//TODO passare l'utente
-                                ft.commit();
+                            if(result.getText().contains("Nome Parco")){
+                                String[] separatedPark = result.getText().split(";");
+                                String nomePark=separatedPark[0].substring(12);
+                                //reinderizza a parkFr
+                                Context context = view.getContext();
+                                FragmentManager fm = ((AppCompatActivity)context).getSupportFragmentManager();
+                                if (fm != null) {
+                                    FragmentTransaction ft = fm.beginTransaction();
+                                    ft.replace(R.id.frame_layout, new ParkFragment(nomePark));
+                                    ft.commit();
+                                }
                             }
+                            else{
+                                //splitta...
+                                String[] separated = result.getText().split(";");
+                                //da dopo Nome: a prima di ;
+                                String nomePet=separated[0].substring(6);
+                                //da dopo Proprietario: a prima di ;
+                                String nomeUser=separated[1].substring(15);
+
+                                //reinderizza a petFr
+                                Context context = view.getContext();
+                                FragmentManager fm = ((AppCompatActivity)context).getSupportFragmentManager();
+                                if (fm != null) {
+                                    FragmentTransaction ft = fm.beginTransaction();
+                                    ft.replace(R.id.frame_layout, new PetFragment(nomePet, nomeUser));//TODO passare l'utente
+                                    ft.commit();
+                                }
+                            }
+
 
                             //stampa testo
                             TextView QRText =  view.findViewById(R.id.txtQr);

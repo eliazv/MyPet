@@ -228,7 +228,7 @@
 
                 <TextView
                     android:id="@+id/tvQRinfo"
-                    android:layout_width="330dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="60dp"
                     android:text="Consiglio: puoi stampare questo QR Code e incollarlo sulla medaglietta del tuo pet!"
