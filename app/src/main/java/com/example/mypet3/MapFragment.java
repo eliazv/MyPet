@@ -55,6 +55,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Vector;
 
+import DBClass.Park;
 import DBClass.Pet;
 
 public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButtonClickListener,
@@ -198,6 +199,28 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
 
             }
         });
+
+
+        dbRef.child("Park").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int count = 0;
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Park Park = dataSnapshot.getValue(Park.class);
+                    //mette il marker
+                    LatLng ll =  getLocationFromAddress(Park.getIndirizzo());
+                    MarkerOptions m = new MarkerOptions().title(Park.getNome()).position(new LatLng(ll.latitude, ll.longitude))
+                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+                    mMap.addMarker(m);
+                    mMarkerArray.add(m);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override
@@ -227,9 +250,16 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
         if (fm != null) {
             FragmentTransaction ft = fm.beginTransaction();
             String nomeM = marker.getTitle();
-            //spezza in due dove c'è -
-            String[] petData = nomeM.split("-");
-            ft.replace(R.id.frame_layout, new PetFragment(petData[0],petData[1]));
+
+            //se non c'è - è un parco (oppure in base al colore del marker)
+            if(!nomeM.contains("-")){
+                ft.replace(R.id.frame_layout, new ParkFragment(nomeM));
+            }
+            else{
+                //spezza in due dove c'è -
+                String[] petData = nomeM.split("-");
+                ft.replace(R.id.frame_layout, new PetFragment(petData[0],petData[1]));
+            }
             ft.commit();
         }
         return false;
