@@ -23,19 +23,19 @@ import com.google.firebase.storage.StorageReference;
 import java.io.File;
 import java.util.ArrayList;
 
-import DBClass.Pet;
+import DBClass.Park;
 
-public class PetAdapter extends RecyclerView.Adapter<PetAdapter.MyViewHolder> {
+public class ParkAdapter extends RecyclerView.Adapter<ParkAdapter.MyViewHolder> {
 
-    ArrayList<Pet> list;
-    ArrayList<Pet> fullList;
+    ArrayList<Park> list;
+    ArrayList<Park> fullList;
 
     Activity activity;
 
     private FirebaseStorage storage;
     private StorageReference storageReference;
 
-    public PetAdapter(ArrayList<Pet> list, Activity activity) {
+    public ParkAdapter(ArrayList<Park> list, Activity activity) {
 
         this.list = list;
         this.fullList = new ArrayList<>(list);
@@ -46,13 +46,13 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //context->parent.getContext()
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card_pet, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card_park, parent, false);
         return new MyViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Pet currentCardItem = list.get(position);
+        Park currentCardItem = list.get(position);
 
         //---Per IMG
         storage = FirebaseStorage.getInstance();
@@ -67,47 +67,10 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.MyViewHolder> {
             e.getMessage();
         }
 
-        /*
-        String imagePath = currentCardItem.getImg();
-        Drawable drawable = AppCompatResources.getDrawable(activity, activity.getResources()
-                .getIdentifier(imagePath, "drawable", activity.getPackageName()));
-        holder.img.setImageDrawable(drawable);*/
-
         holder.nome.setText(currentCardItem.getNome());
         holder.descr.setText(currentCardItem.getDescrizione());
-        holder.proprietario.setText(currentCardItem.getProprietario());
+        holder.indirizzo.setText(currentCardItem.getIndirizzo());
 
-        switch (currentCardItem.getSpecie()){
-            case "Cane":
-                holder.icon.setImageResource(R.mipmap.ic_dog_foreground);
-                break;
-            case "Gatto":
-                holder.icon.setImageResource(R.mipmap.ic_cat_foreground);
-                break;
-            case "Criceto":
-                holder.icon.setImageResource(R.mipmap.ic_ham_foreground);
-                break;
-            case "Cavallo":
-                holder.icon.setImageResource(R.mipmap.ic_horse_foreground);
-                break;
-            case "Uccellino":
-                holder.icon.setImageResource(R.mipmap.ic_bird_foreground);
-                break;
-            case "Coniglio":
-                holder.icon.setImageResource(R.mipmap.ic_rabbit_foreground);
-                break;
-            case "Tartaruga":
-                holder.icon.setImageResource(R.mipmap.ic_turtle_foreground);
-                break;
-            case "Maialino":
-                holder.icon.setImageResource(R.mipmap.ic_pig_foreground);
-                break;
-            case "Pesce":
-                holder.icon.setImageResource(R.mipmap.ic_fish2_foreground);
-                break;
-            default:
-                holder.icon.setImageResource(R.mipmap.ic_pig_foreground);
-        }
     }
 
     @Override
@@ -115,7 +78,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.MyViewHolder> {
         return list.size();
     }
 
-    public Pet getSelectedPet(int position){
+    public Park getSelectedPark(int position){
         return list.get(position);
     }
 
@@ -123,16 +86,15 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.MyViewHolder> {
 
         TextView nome;
         TextView descr;
-        TextView proprietario;
-        ImageView img, icon;
+        TextView indirizzo;
+        ImageView img;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             nome = itemView.findViewById(R.id.tvParkName);
-            descr = itemView.findViewById(R.id.tvPDescr);
-            img = itemView.findViewById(R.id.imageViewPet);
-            icon = itemView.findViewById(R.id.ivPetIcon);
-            proprietario =  itemView.findViewById(R.id.tvPUser);
+            descr = itemView.findViewById(R.id.tvParkDescr);
+            img = itemView.findViewById(R.id.ivPark);
+            indirizzo =  itemView.findViewById(R.id.tvParkPos);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -140,7 +102,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.MyViewHolder> {
                     FragmentManager fm = ((AppCompatActivity)context).getSupportFragmentManager();
                     if (fm != null) {
                         FragmentTransaction ft = fm.beginTransaction();
-                        ft.replace(R.id.frame_layout, new PetFragment(nome.getText().toString(), proprietario.getText().toString()));//TODO passare l'utente
+                        ft.replace(R.id.frame_layout, new ParkFragment(nome.getText().toString()));
                         ft.commit();
                     }
                 }
@@ -156,12 +118,12 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.MyViewHolder> {
     private Filter Searched_Filter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<Pet> filteredList = new ArrayList<>();
+            ArrayList<Park> filteredList = new ArrayList<>();
             if (constraint == null || constraint.length() == 0) {
                 filteredList.addAll(fullList);
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
-                for (Pet item : fullList) {
+                for (Park item : fullList) {
                     if (item.getNome().toLowerCase().contains(filterPattern)) {
                         filteredList.add(item);
                     }

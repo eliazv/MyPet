@@ -240,7 +240,7 @@ public class PetFragment extends Fragment {
                 FragmentManager fm = getFragmentManager();
                 if (fm != null) {
                     FragmentTransaction ft = fm.beginTransaction();
-                    ft.replace(R.id.frame_layout, new PetFragment(nomePet, "e"));
+                    ft.replace(R.id.frame_layout, new PetFragment(nomePet, "e"));//TODO togli "e"
                     ft.commit();
                 }
             }
