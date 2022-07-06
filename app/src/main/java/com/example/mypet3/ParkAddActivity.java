@@ -69,7 +69,7 @@ public class ParkAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_park_add);
 
-        dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://myPark---android-app-default-rtdb.firebaseio.com/");
+        dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mypet---android-app-default-rtdb.firebaseio.com/");
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 

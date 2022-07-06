@@ -68,8 +68,8 @@ public class ParkTabFragment extends Fragment {
         if (ParkList != null) {
             ParkList.clear();
         }
-/*
-        dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://myPark---android-app-default-rtdb.firebaseio.com/");
+
+        dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mypet---android-app-default-rtdb.firebaseio.com/");
 
         dbRef.child("Park").addValueEventListener(new ValueEventListener() {
             @Override
@@ -85,7 +85,7 @@ public class ParkTabFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
+        });
     }
 
     @Override
