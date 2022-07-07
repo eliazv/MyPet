@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
             switch (item.getItemId()){
                 case R.id.home:
-                    replaceFragment(new TabHomeFragment());
+                    //replaceFragment(new TabHomeFragment());
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     break;
                 case R.id.map:
                     replaceFragment(new MapFragment());

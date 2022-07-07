@@ -37,10 +37,6 @@ public class TabHomeFragment extends Fragment {
         tabLayout=(TabLayout)view.findViewById(R.id.tabLayout);
         viewPager=(ViewPager)view.findViewById(R.id.viewPager);
 
-        /*
-        tabLayout.addTab(tabLayout.newTab().setText("Home"));
-        tabLayout.addTab(tabLayout.newTab().setText("Sport"));
-        tabLayout.addTab(tabLayout.newTab().setText("Movie"));*/
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
 
