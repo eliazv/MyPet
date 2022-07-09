@@ -13,8 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -31,8 +33,9 @@ public class PetTabFragment extends Fragment {
 
     RecyclerView recyclerView;
     DatabaseReference dbRef;
-    PetAdapter myAdapter;
+    static PetAdapter petAdapter;
     ArrayList<Pet> petList;
+    ArrayList<Pet> petFiltered;
 
 
     @Override
@@ -57,8 +60,8 @@ public class PetTabFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
         petList = new ArrayList<>();
-        myAdapter = new PetAdapter(petList,getActivity());
-        recyclerView.setAdapter(myAdapter);
+        petAdapter = new PetAdapter(petList,getActivity());
+        recyclerView.setAdapter(petAdapter);
 
 
 
@@ -75,7 +78,7 @@ public class PetTabFragment extends Fragment {
                     Pet p = sn.getValue(Pet.class);
                     petList.add(p);
                 }
-                myAdapter.notifyDataSetChanged();
+                petAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -83,6 +86,50 @@ public class PetTabFragment extends Fragment {
 
             }
         });
+
+        /*
+        MenuItem searchItem = getActivity().findViewById(R.id.action_search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                petFiltered = new ArrayList<>();
+                for (Pet item : petList){
+                    if(item.getNome().toLowerCase().contains(query.toLowerCase())){
+                        petFiltered.add(item);
+                    }
+                }
+                //AllMuseumCardAdapter adapterMuseumFiltered = new AllMuseumCardAdapter(listenerMuseum, museumFiltered, getActivity());
+                //recyclerViewMuseum.setAdapter(adapterMuseumFiltered);
+                //adapterMuseumFiltered.notifyDataSetChanged();
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                //Log.d("newText",newText);
+                //petAdapter.getFilter().filter(newText);
+                petFiltered = new ArrayList<>();
+                for (Pet item : petList){
+                    if(item.getNome().toLowerCase().contains(newText.toLowerCase())){
+                        petFiltered.add(item);
+                    }
+                }
+                //AllMuseumCardAdapter adapterMuseumFiltered = new AllMuseumCardAdapter(listenerMuseum, museumFiltered, getActivity());
+                //recyclerViewMuseum.setAdapter(adapterMuseumFiltered);
+                //adapterMuseumFiltered.notifyDataSetChanged();
+
+                if(newText == ""){
+                    recyclerView.setAdapter(petAdapter);
+                    petAdapter.notifyDataSetChanged();
+                }
+                return false;
+            }
+        });
+        searchView.setOnCloseListener(() -> {
+            recyclerView.setAdapter(petAdapter);
+            petAdapter.notifyDataSetChanged();
+            return false;
+        });*/
     }
 
     @Override
@@ -94,6 +141,8 @@ public class PetTabFragment extends Fragment {
         setHasOptionsMenu(true);
         return view;
     }
+
+
 
 
 }

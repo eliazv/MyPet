@@ -22,10 +22,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -55,7 +57,7 @@ public class PetFragment extends Fragment {
 
     ImageView qrIV, petImg, specie;
     TextView descr, casa, telefono;
-    String nomePet, user, getCasa, getDescr, getSpecie, getImg, getTel, qrText;
+    String nomePet, user, getCasa, getDescr, getSpecie, getImg, getTel, qrText, getImgDel;
 
     public PetFragment(){}
 
@@ -75,9 +77,44 @@ public class PetFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_pet, container, false);
 
+        storage = FirebaseStorage.getInstance();
+        dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mypet---android-app-default-rtdb.firebaseio.com/");
+
+        Button buttDel = view.findViewById(R.id.btnDel);
+        if(loggedUser.equals(user)){
+            buttDel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //elimina
+                    dbRef.child("Pet").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.hasChild(nomePet+" - "+user)) {
+                                getImgDel = snapshot.child(nomePet+" - "+user).child("img").getValue(String.class);
+                                snapshot.child(nomePet + " - " + user).getRef().removeValue();
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                    //StorageReference desertRef = storage.getReference().child(getImgDel);
+                    //desertRef.delete();
+
+                    //torna alla home
+                    Toast.makeText(getContext(), "Pet eliminato.", Toast.LENGTH_SHORT).show();
+                    startActivity( new Intent(getActivity().getApplicationContext(), MainActivity.class));
+                }
+            });
+        }
+        else{
+            buttDel.setVisibility(View.GONE);
+        }
+
 
         //-----Set Data
-        dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mypet---android-app-default-rtdb.firebaseio.com/");
         dbRef.child("Pet").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -142,7 +179,6 @@ public class PetFragment extends Fragment {
 
                     //----IMG
                     getImg = snapshot.child(nomePet+" - "+user).child("img").getValue(String.class);
-                    storage = FirebaseStorage.getInstance();
                     petImg = view.findViewById(R.id.imgPetProfile);
                     try {
                         storageReference = storage.getReference().child(getImg);
@@ -216,7 +252,6 @@ public class PetFragment extends Fragment {
 
 
         //-----Set imageView
-        storage = FirebaseStorage.getInstance();
         petImg = view.findViewById(R.id.imgPetProfile);
         try {
             storageReference = storage.getReference().child("image/" + "nuovoe" + ".jpeg");

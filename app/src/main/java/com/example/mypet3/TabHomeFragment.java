@@ -18,7 +18,6 @@ public class TabHomeFragment extends Fragment {
     ViewPager viewPager;
 
     public TabHomeFragment() {
-        // Required empty public constructor
     }
 
     @Override

@@ -127,6 +127,7 @@ public class ParkAddActivity extends AppCompatActivity {
                     }
                     else{
                         dbRef.child("Park").child(idPark).child("nome").setValue(nomeText);
+                        dbRef.child("Park").child(idPark).child("autore").setValue(loggedUser);
                         dbRef.child("Park").child(idPark).child("descrizione").setValue(descrText);
                         dbRef.child("Park").child(idPark).child("indirizzo").setValue(posizText);
                         dbRef.child("Park").child(idPark).child("img").setValue("park/" + nome.getText().toString() + ".jpeg");

@@ -2,6 +2,8 @@ package com.example.mypet3;
 
 import static android.content.ContentValues.TAG;
 
+import static com.example.mypet3.PetTabFragment.petAdapter;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -90,8 +92,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.search_menu, menu);
+
         MenuItem searchItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
+
         searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -102,12 +106,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 Log.d("newText",newText);
-                //adapter.getFilter().filter(newText);//myAdapter
+                petAdapter.getFilter().filter(newText);//myAdapter
                 return false;
             }
         });
         return true;
     }
+
+
     @Override
     protected void onStart() {
         super.onStart();

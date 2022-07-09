@@ -22,6 +22,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,7 +56,7 @@ public class ParkFragment extends Fragment {
 
     ImageView qrIV, ParkImg;
     TextView descr, casa;
-    String nomePark, getCasa, getDescr, getImg, qrText;
+    String nomePark, getCasa, getDescr, getImg, qrText, getAutore;
 
     public ParkFragment(){}
 
@@ -74,9 +75,12 @@ public class ParkFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_park, container, false);
 
+        dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mypet---android-app-default-rtdb.firebaseio.com/");
+
+        Button buttDel = view.findViewById(R.id.btnDel);
+
 
         //-----Set Data
-        dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mypet---android-app-default-rtdb.firebaseio.com/");
         dbRef.child("Park").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -132,6 +136,38 @@ public class ParkFragment extends Fragment {
                         });
                     } catch (Exception e){
                         e.getMessage();
+                    }
+
+
+                    //---bottone elimina
+                    getAutore = snapshot.child(nomePark).child("autore").getValue(String.class);
+                    //devo prendere autore
+
+                    if(loggedUser.equals(getAutore)){
+                        buttDel.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //elimina
+                                dbRef.child("Park").addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        if (snapshot.hasChild(nomePark)) {
+                                            snapshot.child(nomePark).getRef().removeValue();
+                                        }
+                                    }
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+                                //torna alla home
+                                Toast.makeText(getContext(), "Park eliminato.", Toast.LENGTH_SHORT).show();
+                                startActivity( new Intent(getActivity().getApplicationContext(), MainActivity.class));
+                            }
+                        });
+                    }
+                    else{
+                        buttDel.setVisibility(View.GONE);
                     }
 
                 } else {
