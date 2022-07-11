@@ -167,8 +167,9 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
         }*/
         if(addrCurrent!=null){
             LatLng posCurrent=getLocationFromAddress(addrCurrent);
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(posCurrent.latitude, posCurrent.longitude),16));
-
+            if(posCurrent!=null){
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(posCurrent.latitude, posCurrent.longitude),16));
+            }
         }
         else{
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(43.4254152,11.723322),6));
@@ -187,10 +188,12 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
                     Pet Pet = dataSnapshot.getValue(Pet.class);
                     //mette il marker
                     LatLng ll =  getLocationFromAddress(Pet.getIndirizzo());
-                    MarkerOptions m = new MarkerOptions().title(Pet.getNome()+"-"+Pet.getProprietario()).position(new LatLng(ll.latitude, ll.longitude))
-                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
-                    mMap.addMarker(m);
-                    mMarkerArray.add(m);
+                    if(ll!=null){
+                        MarkerOptions m = new MarkerOptions().title(Pet.getNome()+"-"+Pet.getProprietario()).position(new LatLng(ll.latitude, ll.longitude))
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+                        mMap.addMarker(m);
+                        mMarkerArray.add(m);
+                    }
                 }
             }
 
@@ -209,10 +212,12 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
                     Park Park = dataSnapshot.getValue(Park.class);
                     //mette il marker
                     LatLng ll =  getLocationFromAddress(Park.getIndirizzo());
-                    MarkerOptions m = new MarkerOptions().title(Park.getNome()).position(new LatLng(ll.latitude, ll.longitude))
-                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-                    mMap.addMarker(m);
-                    mMarkerArray.add(m);
+                    if(ll!=null){
+                        MarkerOptions m = new MarkerOptions().title(Park.getNome()).position(new LatLng(ll.latitude, ll.longitude))
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+                        mMap.addMarker(m);
+                        mMarkerArray.add(m);
+                    }
                 }
             }
 
