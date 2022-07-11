@@ -48,34 +48,6 @@ public class RegistrActivity extends AppCompatActivity {
 
         Button buttReg = findViewById(R.id.btnRegistr);
         buttReg.setOnClickListener(view -> register());
-        /*
-        DBUser userdb = new DBUser();
-        buttReg.setOnClickListener(v-> {
-            if(edit_upass.getText().toString().equals(edit_upassconf.getText().toString())){
-                //TODO controllo email duplicate
-                User user = new User(edit_uUser.getText().toString(),
-                        edit_uemail.getText().toString(), edit_upass.getText().toString(), edit_utel.getText().toString());
-
-                userdb.add(user).addOnSuccessListener(suc -> {
-                    Toast.makeText(RegistrActivity.this, "Utente inserito correttamente.", Toast.LENGTH_SHORT).show();
-
-
-                    //CreateUser(user.email, user.password);
-
-                    Intent UserInt4 = new Intent(getApplicationContext(), LoginActivity.class);
-                    startActivity(UserInt4);
-                }).addOnFailureListener(er -> {
-                    Toast.makeText(RegistrActivity.this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
-                    TextView PetNameD =  findViewById(R.id.txtError);
-                    PetNameD.setText("Errore:"+er.getMessage());
-                });
-            }
-            else{
-                Toast.makeText(RegistrActivity.this, "Le password non corrispondono.", Toast.LENGTH_SHORT).show();
-                TextView PetNameD =  findViewById(R.id.txtError);
-                PetNameD.setText("Le password non corrispondono.");
-            }
-        });*/
     }
 
 
@@ -87,7 +59,7 @@ public class RegistrActivity extends AppCompatActivity {
         String pswText = password.getText().toString();
 
         EditText tel = findViewById(R.id.txtTel);
-        String telText = password.getText().toString();
+        String telText = tel.getText().toString();
 
         EditText email = findViewById(R.id.txtEmail);
         String emailText = email.getText().toString();
