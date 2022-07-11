@@ -66,11 +66,11 @@
                         <TextView
                             android:id="@+id/tvNameParkFr"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:gravity="center"
                             android:text="Pluto"
                             android:textColor="#FFFFFF"
-                            android:textSize="42sp"
+                            android:textSize="32sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
