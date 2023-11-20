@@ -1,6 +1,7 @@
 # MyPet
 Progetto per la materia Programmazione di sistemi Mobile.
-Permette di inserire nell'app parchi e animali domestici, visualizzare per ognuno un codice QR e visualizzarli sulla mappa.
+
+MyPet è un'applicazione Android progettata per fornire un'esperienza completa nella gestione delle informazioni sugli animali domestici e sui parchi pubblici. Le sue funzionalità principali includono la possibilità di aggiungere nuovi animali domestici e parchi, la generazione di codici QR univoci per ciascun parco e animale domestico che, una volta scannerizzati, consentono di accedere alle informazioni dettagliate associate. Inoltre, l'app consente agli utenti di visualizzare parchi e animali domestici direttamente sulla mappa e di effettuare ricerche basate sulla posizione.
 
 APK installabile dentro la cartella \APK e Presentazione.
 
